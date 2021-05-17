@@ -1,12 +1,13 @@
 .App {
   display: grid;
-  grid-template-areas: "nav nav nav nav"
-                       "prl prl prl bsk";
+  grid-template-areas:
+    "nav nav nav nav"
+    "prl prl prl bsk";
 }
 
 .SimpleNav {
   grid-area: nav;
-  background-color: aquamarine;
+  background-color: rgb(202, 203, 202);
 }
 
 .ProductList {
@@ -45,7 +46,6 @@
 .counter {
   display: grid;
   grid-template: auto / 3em 3em 3em;
-  
 }
 
 .counter input[type="text"] {

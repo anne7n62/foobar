@@ -1,13 +1,9 @@
-import Product from './Product.js';
+import Product from "./Product.js";
 
-function ProductList({products,addToBasket}) {
-  const productlist = products.map( product => <Product product={product} key={product.id} addToBasket={addToBasket}></Product> );
+function ProductList({ products, addToBasket, removeFromBasket, basket }) {
+  const productlist = products.map((product) => <Product basket={basket} product={product} key={product.name} addToBasket={addToBasket} removeFromBasket={removeFromBasket}></Product>);
 
-  return (
-    <div className="ProductList">
-        {productlist}
-    </div>
-  )
+  return <div className="ProductList">{productlist}</div>;
 }
 
 export default ProductList;
