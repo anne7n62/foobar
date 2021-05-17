@@ -73,8 +73,10 @@ function App() {
       <button onClick={addProduct}>Add new Product</button>
       <div className="App">
         <SimpleNav></SimpleNav>
-        <ProductList products={products} addToBasket={addToBasket} removeFromBasket={removeFromBasket} basket={basket} />
-        <Basket basket={basket} addToBasket={addToBasket} removeFromBasket={removeFromBasket} />
+        <main>
+          <ProductList products={products} addToBasket={addToBasket} removeFromBasket={removeFromBasket} basket={basket} />
+          <Basket basket={basket} addToBasket={addToBasket} removeFromBasket={removeFromBasket} />
+        </main>
       </div>
     </>
   );
