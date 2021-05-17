@@ -1,0 +1,67 @@
+.App {
+  display: grid;
+  grid-template-areas: "nav nav nav nav"
+                       "prl prl prl bsk";
+}
+
+.SimpleNav {
+  grid-area: nav;
+  background-color: aquamarine;
+}
+
+.ProductList {
+  grid-area: prl;
+  background-color: azure;
+  display: grid;
+  grid-template: auto / 1fr 1fr 1fr;
+}
+
+.Basket {
+  grid-area: bsk;
+  background-color: bisque;
+}
+
+/* .App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+} */
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+.counter {
+  display: grid;
+  grid-template: auto / 3em 3em 3em;
+  
+}
+
+.counter input[type="text"] {
+  text-align: right;
+}
+
+/* 
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+} */
