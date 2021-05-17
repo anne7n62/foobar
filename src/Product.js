@@ -24,7 +24,7 @@ function Product({ product, addToBasket, removeFromBasket, basket }) {
   const found = basket.filter((item) => item.key === product.name)[0];
   let count = 0;
   if (found) {
-    count = found.count;
+    count = found.amount;
   }
   console.log(count);
   return (

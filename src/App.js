@@ -28,12 +28,12 @@ function App() {
     const productInBasket = basket.find((item) => item.product.name === product.name);
     if (productInBasket) {
       // put one more product of that type in the basket
-      productInBasket.count++;
+      productInBasket.amount++;
       // update the state with all the same items, but one of them updated!
       setBasket((prevState) => prevState.map((item) => item));
     } else {
       // put the product in the basket for the first time
-      setBasket((prevState) => prevState.concat({ product, count: 1, key: product.name }));
+      setBasket((prevState) => prevState.concat({ product, amount: 1, key: product.name }));
     }
   }
 
@@ -42,9 +42,9 @@ function App() {
     const productInBasket = basket.find((item) => item.product.name === product.name);
     if (productInBasket) {
       // put one more product of that type in the basket
-      productInBasket.count--;
+      productInBasket.amount--;
       // update the state with all the same items, but one of them updated!
-      setBasket((prevState) => prevState.map((item) => item).filter((item) => item.count > 0));
+      setBasket((prevState) => prevState.map((item) => item).filter((item) => item.amount > 0));
     }
   }
 

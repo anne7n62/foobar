@@ -38,7 +38,7 @@ function BasketItem(props) {
       {props.product.name}
       <div className="counter">
         <button onClick={() => props.removeFromBasket(props.product)}>-</button>
-        <input type="text" disabled value={props.count} />
+        <input type="text" disabled value={props.amount} />
         <button onClick={() => props.addToBasket(props.product)}>+</button>
       </div>
     </li>
