@@ -1,32 +1,18 @@
-import { useState } from "react";
-
 function Product({ product, addToBasket, removeFromBasket, basket }) {
+
   const styles = {
     border: "1px solid #000",
-    backgroundColor: product.soldOut ? "red" : "tan",
+    backgroundColor: product.soldOut ? "red" : "white",
   };
 
-  // const [amount, setAmount] = useState(0);
-
-  // function decreaseAmount() {
-  //   setAmount((prev) => (prev > 0 ? prev - 1 : prev));
-  // }
-
-  // function increaseAmount() {
-  //   setAmount((prev) => prev + 1);
-  // }
-
-  // function enterAmount(event) {
-  //   console.log(`Entered amount ${event.target.value}`);
-  //   setAmount((prev) => Number(event.target.value));
-  // }
-
   const found = basket.filter((item) => item.key === product.name)[0];
+
   let count = 0;
+
   if (found) {
     count = found.amount;
   }
-  console.log(count);
+
   return (
     <div className="Product" style={styles}>
       <div className={"product_img"}>
@@ -35,7 +21,7 @@ function Product({ product, addToBasket, removeFromBasket, basket }) {
 
       <h1>{product.name}</h1>
       <p>{product.description.overallImpression}</p>
-      <p>Pris</p>
+      <span className="ProductPrice">50 DKK</span>
       <div className="counter">
         {/* <button onClick={decreaseAmount}>-</button>
         <input type="text" onChange={enterAmount} value={amount} /> */}

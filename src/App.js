@@ -1,9 +1,11 @@
 import { useState, useEffect } from "react";
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
-// import logo from './logo.svg';¨
-import SimpleNav from "./SimpleNav.js";
 import ProductList from "./ProductList.js";
 import Basket from "./Basket.js";
+import Payment from "./Payment.js";
+import ThankYou from "./ThankYou.js";
+
 import "./App.css";
 
 function App() {
@@ -48,37 +50,26 @@ function App() {
     }
   }
 
-  function addProduct() {
-    setProducts((prevState) =>
-      prevState.concat({
-        id: 1533,
-        gender: "Uni",
-        category: "Apparel",
-        subcategory: "Topwear",
-        articletype: "Harness",
-        season: "all",
-        productionyear: 2020,
-        usagetype: "Strict",
-        productdisplayname: "Cat harness for walking",
-        price: 95,
-        discount: null,
-        brandname: "Wolf",
-        soldout: 1,
-      })
-    );
-  }
-
   return (
-    <>
-      <button onClick={addProduct}>Add new Product</button>
+    <Router>
       <div className="App">
-        <SimpleNav></SimpleNav>
-        <main>
-          <ProductList products={products} addToBasket={addToBasket} removeFromBasket={removeFromBasket} basket={basket} />
-          <Basket basket={basket} addToBasket={addToBasket} removeFromBasket={removeFromBasket} />
-        </main>
+        <nav>
+          <Link to="/">Shop</Link>
+          <Link to="/payment">Payment</Link>
+          <Link to="/thanks">Thanks</Link>
+        </nav>
+        <Switch>
+          <Route path="/" exact render={() =>
+            <main>
+              <ProductList className="ProductList" products={products} addToBasket={addToBasket} removeFromBasket={removeFromBasket} basket={basket} />
+              <Basket basket={basket} addToBasket={addToBasket} removeFromBasket={removeFromBasket} />
+            </main>
+          } />
+          <Route path="/payment" render={() => <Payment basket={basket} ></Payment>} />
+          <Route path="/thanks" render={() => <ThankYou></ThankYou>} />
+        </Switch>
       </div>
-    </>
+    </Router>
   );
 }
 
