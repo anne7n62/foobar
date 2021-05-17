@@ -5,11 +5,17 @@ function Basket(props) {
   return (
     <div className="Basket">
       <MyBasket {...props}></MyBasket>
-      <div className="BasketTotal">
-        <p>Total:</p>
-        <span className="TotalPrice">500 DKK</span>
-      </div>
+      {props.basket.length > 0 && <BasketTotal />}
       {props.basket.length > 0 && <SubmitButton></SubmitButton>}
+    </div>
+  );
+}
+
+function BasketTotal() {
+  return (
+    <div className="BasketTotal">
+      <p>Total:</p>
+      <span className="TotalPrice">500 DKK</span>
     </div>
   );
 }

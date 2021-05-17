@@ -35,6 +35,7 @@ function PaymentBasketItem(props) {
                     <img src={`./images/${props.product.label}`} alt="Product" />
                 </div>
                 <h3 className="BasketItemHeading">{props.product.name}</h3>
+                <p className="BasketItemAmount">{props.amount}</p>
                 <span className="BasketItemPrice">50 DKK</span>
             </div>
         </li>
