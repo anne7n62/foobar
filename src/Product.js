@@ -1,11 +1,14 @@
-function Product({ product, addToBasket, removeFromBasket, basket }) {
+function Product({ products, addToBasket, removeFromBasket, basket, tap }) {
+  //vi laver et objekt
+  const infoObject = products.find((item) => item.name === tap.beer);
+  console.log(infoObject);
 
-  const styles = {
-    border: "1px solid #000",
-    backgroundColor: product.soldOut ? "red" : "white",
-  };
+  // const styles = {
+  //   border: "1px solid #000",
+  //   backgroundColor: infoObject.soldOut ? "red" : "white",
+  // };
 
-  const found = basket.filter((item) => item.key === product.name)[0];
+  const found = basket.filter((item) => item.key === infoObject.name)[0];
 
   let count = 0;
 
@@ -14,22 +17,22 @@ function Product({ product, addToBasket, removeFromBasket, basket }) {
   }
 
   return (
-    <div className="Product" style={styles}>
+    <div className="Product">
       <div className={"product_img"}>
-        <img src={`./images/${product.label}`} alt="Product" />
+        <img src={`./images/${infoObject.label}`} alt="Product" />
       </div>
 
-      <h1>{product.name}</h1>
-      <p>{product.description.overallImpression}</p>
-      <span className="ProductPrice">50 DKK</span>
+      <h1>{infoObject.name}</h1>
+      <p>{infoObject.description.overallImpression}</p>
+      <span className="ProductPrice">{infoObject.price}</span>
       <div className="counter">
         {/* <button onClick={decreaseAmount}>-</button>
         <input type="text" onChange={enterAmount} value={amount} /> */}
-        <button disabled={count === 0} onClick={() => removeFromBasket(product)}>
+        <button disabled={count === 0} onClick={() => removeFromBasket(infoObject)}>
           -
         </button>
         <input type="text" value={count} />
-        <button onClick={() => addToBasket(product)}>+</button>
+        <button onClick={() => addToBasket(infoObject)}>+</button>
       </div>
     </div>
   );
