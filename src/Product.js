@@ -24,7 +24,7 @@ function Product({ products, addToBasket, removeFromBasket, basket, tap }) {
 
       <h1>{infoObject.name}</h1>
       <p>{infoObject.description.overallImpression}</p>
-      <span className="ProductPrice">{infoObject.price}</span>
+      <span className="ProductPrice">{infoObject.price} DKK</span>
       <div className="counter">
         {/* <button onClick={decreaseAmount}>-</button>
         <input type="text" onChange={enterAmount} value={amount} /> */}

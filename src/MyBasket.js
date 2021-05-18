@@ -27,7 +27,7 @@ function BasketItem(props) {
           <input type="text" disabled value={props.amount} />
           <button onClick={() => props.addToBasket(props.product)}>+</button>
         </div>
-        <span className="BasketItemPrice">50 DKK</span>
+        <span className="BasketItemPrice">{props.product.price} DKK</span>
       </div>
     </li>
   );
