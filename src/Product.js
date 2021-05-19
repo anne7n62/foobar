@@ -1,7 +1,6 @@
 function Product({ products, addToBasket, removeFromBasket, basket, tap }) {
   //vi laver et objekt
   const infoObject = products.find((item) => item.name === tap.beer);
-  console.log(infoObject);
 
   // const styles = {
   //   border: "1px solid #000",

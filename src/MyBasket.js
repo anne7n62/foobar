@@ -1,7 +1,6 @@
 import BasketMessage from "./BasketMessage";
 
 function MyBasket({ basket, ...rest }) {
-  console.log(rest);
   return (
     <>
       <ul className="BasketList">

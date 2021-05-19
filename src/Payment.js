@@ -1,12 +1,52 @@
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
-
 import "react-credit-cards/es/styles-compiled.css";
 
 import React from 'react';
 import Cards from 'react-credit-cards';
 
-export default function Payment(props) {
+import postData from "./Post";
+
+function Payment(props) {
+
+    console.log("Hello");
+
+    // let filteredPostOrders = props.basket.map(order => {
+    //     return order.amount < 1
+    //         ? undefined
+    //         : { name: order.product.name, amount: Number(order.amount) };
+    // });
+
+    // filteredPostOrders = filteredPostOrders.filter(order => {
+    //     return order !== undefined;
+    // });
+
+    // const fullData = {
+    //     order_id: 23,
+    //     order: filteredPostOrders,
+    //     cartholder_name: "name",
+    //     cc_number: 123456789123,
+    //     expiration_date: 120913,
+    //     cvv: 123,
+    //     table_id: 17,
+    // };
+
+    // function orderSubmit() {
+    //     postDatda(
+    //         fullData,
+    //         'https://foobar-bc64.restdb.io/rest/foobarorders',
+    //         data => {
+    //             return data.message === 'added' ? (
+    //                 <div>
+    //                     <h1>success</h1>
+    //                 </div>
+    //             ) : (
+    //                 <div> Something went wrong, Please Refresh and try again </div>
+    //             );
+    //         }
+    //     );
+    // }
+
     return (
         <div className="Payment">
             <div className="BasketDetails">
@@ -18,6 +58,7 @@ export default function Payment(props) {
             <div className="PaymentDetails">
                 <h1>Payment Details</h1>
                 <PaymentForm />
+                <button>Test</button>
                 <Link to="/thanks">
                     <button className="SubmitButton">Complete order</button>
                 </Link>
@@ -37,6 +78,13 @@ function PaymentBasket({ basket }) {
 }
 
 function PaymentBasketItem(props) {
+
+    // const basketArray = [];
+
+
+    // vi kender props.product.name
+    // vi kender props.amount
+
     return (
         <li>
             <div className="BasketItem">
@@ -70,6 +118,7 @@ class PaymentForm extends React.Component {
 
         this.setState({ [name]: value });
     };
+
 
     render() {
         return (
@@ -118,3 +167,5 @@ class PaymentForm extends React.Component {
         );
     }
 }
+
+export default Payment;

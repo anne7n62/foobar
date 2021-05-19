@@ -8,7 +8,6 @@ import ThankYou from "./ThankYou.js";
 
 import "./App.css";
 import prices from "./prices.json";
-console.log(prices);
 
 function App() {
   const [products, setProducts] = useState([]);
@@ -27,7 +26,6 @@ function App() {
         const nextJSON = json.map((beer) => {
           //laver nyt object. Match mellem names
           const priceObject = prices.find((item) => item.name === beer.name);
-          console.log(priceObject);
           //opretter en egenskab til beer der hedder pris
           beer.price = priceObject.price;
           return beer;
@@ -39,7 +37,6 @@ function App() {
   }
 
   function fetchAvailable(url) {
-    console.log("hej");
 
     fetch(url)
       .then((resp) => resp.json())
@@ -49,9 +46,10 @@ function App() {
         //tjekker hvert andet sekund
         setTimeout(() => {
           fetchAvailable(url);
-        }, 2000);
+        }, 5000);
       });
   }
+
 
   function addToBasket(product) {
     // Check if a product of this type is already in the basket
