@@ -6,46 +6,22 @@ import React from 'react';
 import Cards from 'react-credit-cards';
 
 import postData from "./Post";
+import PaymentBasket from "./PaymentBasket";
 
 function Payment(props) {
 
-    console.log("Hello");
+    let filteredPostOrders = props.basket.map(order => {
+        return { name: order.product.name, amount: Number(order.amount) };
+    });
 
-    // let filteredPostOrders = props.basket.map(order => {
-    //     return order.amount < 1
-    //         ? undefined
-    //         : { name: order.product.name, amount: Number(order.amount) };
-    // });
+    filteredPostOrders = filteredPostOrders.filter(order => {
+        return order !== undefined;
+    });
 
-    // filteredPostOrders = filteredPostOrders.filter(order => {
-    //     return order !== undefined;
-    // });
+    console.log(filteredPostOrders);
 
-    // const fullData = {
-    //     order_id: 23,
-    //     order: filteredPostOrders,
-    //     cartholder_name: "name",
-    //     cc_number: 123456789123,
-    //     expiration_date: 120913,
-    //     cvv: 123,
-    //     table_id: 17,
-    // };
-
-    // function orderSubmit() {
-    //     postDatda(
-    //         fullData,
-    //         'https://foobar-bc64.restdb.io/rest/foobarorders',
-    //         data => {
-    //             return data.message === 'added' ? (
-    //                 <div>
-    //                     <h1>success</h1>
-    //                 </div>
-    //             ) : (
-    //                 <div> Something went wrong, Please Refresh and try again </div>
-    //             );
-    //         }
-    //     );
-    // }
+    // Kommentar onsdag, Louise: Lige nu virker post af basket ordren,
+    // men den poster når man kommer til payment siden og ikke ved klik på knappen.
 
     return (
         <div className="Payment">
@@ -58,7 +34,7 @@ function Payment(props) {
             <div className="PaymentDetails">
                 <h1>Payment Details</h1>
                 <PaymentForm />
-                <button>Test</button>
+                <button onclick={orderSubmit(filteredPostOrders)}>Test</button>
                 <Link to="/thanks">
                     <button className="SubmitButton">Complete order</button>
                 </Link>
@@ -67,40 +43,26 @@ function Payment(props) {
     );
 }
 
-function PaymentBasket({ basket }) {
-    return (
-        <ul className="PaymentBasket">
-            {basket.map(item => (
-                <PaymentBasketItem {...item} />
-            ))}
-        </ul>
-    );
-}
 
-function PaymentBasketItem(props) {
-
-    // const basketArray = [];
-
-
-    // vi kender props.product.name
-    // vi kender props.amount
-
-    return (
-        <li>
-            <div className="BasketItem">
-                <div className={"BasketItemImg"}>
-                    <img src={`./images/${props.product.label}`} alt="Product" />
+function orderSubmit(fullData) {
+    postData(
+        fullData,
+        'https://dreaming-of-foobar.herokuapp.com/order',
+        data => {
+            return data.message === 'Order went through' ? (
+                <div>
+                    <h1>success</h1>
                 </div>
-                <h3 className="BasketItemHeading">{props.product.name}</h3>
-                <p className="BasketItemAmount">{props.amount}</p>
-                <span className="BasketItemPrice">{props.product.price} DKK</span>
-            </div>
-        </li>
+            ) : (
+                <div> Something went wrong, Please Refresh and try again </div>
+            );
+        }
     );
 }
 
 // NPM creditcard package
 class PaymentForm extends React.Component {
+
     state = {
         cvc: "",
         expiry: "",

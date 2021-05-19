@@ -43,10 +43,10 @@ function App() {
       .then((json) => {
         setFoobar(json);
 
-        //tjekker hvert andet sekund
-        setTimeout(() => {
-          fetchAvailable(url);
-        }, 5000);
+        // //tjekker hvert femte sekund
+        // setTimeout(() => {
+        //   fetchAvailable(url);
+        // }, 5000);
       });
   }
 
@@ -96,7 +96,9 @@ function App() {
             )}
           />
           <Route path="/payment" render={() => <Payment basket={basket}></Payment>} />
-          <Route path="/thanks" render={() => <ThankYou></ThankYou>} />
+          <Route path="/thanks">
+            <ThankYou />
+          </Route>
         </Switch>
       </div>
     </Router>
