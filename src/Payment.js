@@ -14,14 +14,17 @@ function Payment(props) {
         return { name: order.product.name, amount: Number(order.amount) };
     });
 
-    filteredPostOrders = filteredPostOrders.filter(order => {
-        return order !== undefined;
-    });
+    // Skal vi bruge denne?
+    // filteredPostOrders = filteredPostOrders.filter(order => {
+    //     return order !== undefined;
+    // });
 
     console.log(filteredPostOrders);
 
     // Kommentar onsdag, Louise: Lige nu virker post af basket ordren,
     // men den poster når man kommer til payment siden og ikke ved klik på knappen.
+
+    // poster 2 gange??
 
     return (
         <div className="Payment">
