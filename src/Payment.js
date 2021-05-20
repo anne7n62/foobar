@@ -17,6 +17,8 @@ function Payment(props) {
         return { name: order.product.name, amount: Number(order.amount) };
     });
 
+    // Hej Annemette
+
     // Skal vi bruge denne?
     // filteredPostOrders = filteredPostOrders.filter(order => {
     //     return order !== undefined;
