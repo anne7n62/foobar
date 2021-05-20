@@ -37,7 +37,7 @@ function Payment(props) {
             <div className="PaymentDetails">
                 <h1>Payment Details</h1>
                 <PaymentForm />
-                <button onclick={orderSubmit(filteredPostOrders)}>Test</button>
+                <button onClick={() => orderSubmit(filteredPostOrders)}>Test</button>
                 <Link to="/thanks">
                     <button className="SubmitButton">Complete order</button>
                 </Link>
@@ -57,7 +57,7 @@ function orderSubmit(fullData) {
                     <h1>success</h1>
                 </div>
             ) : (
-                <div> Something went wrong, Please Refresh and try again </div>
+                <div> error </div>
             );
         }
     );
