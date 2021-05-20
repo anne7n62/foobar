@@ -100,7 +100,7 @@ class PaymentForm extends React.Component {
                         type="tel"
                         name="number"
                         placeholder="Card Number"
-                        maxLength="16"
+                        maxLength="16" pattern="/^4[0-9]{12}(?:[0-9]{3})?$/"
                         onChange={this.handleInputChange}
                         onFocus={this.handleInputFocus}
                     />
