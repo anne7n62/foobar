@@ -1,9 +1,12 @@
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
-import "react-credit-cards/es/styles-compiled.css";
-
 import React from 'react';
+import { useState, useEffect } from "react";
+import { Input } from "antd";
+import InputMask from "react-input-mask";
 import Cards from 'react-credit-cards';
+import 'react-credit-cards/es/styles-compiled.css';
+import "antd/dist/antd.css";
 
 import postData from "./Post";
 import PaymentBasket from "./PaymentBasket";
@@ -20,11 +23,6 @@ function Payment(props) {
     // });
 
     console.log(filteredPostOrders);
-
-    // Kommentar onsdag, Louise: Lige nu virker post af basket ordren,
-    // men den poster når man kommer til payment siden og ikke ved klik på knappen.
-
-    // poster 2 gange??
 
     return (
         <div className="Payment">
@@ -63,7 +61,8 @@ function orderSubmit(fullData) {
     );
 }
 
-// NPM creditcard package
+// Mangler validering....
+
 class PaymentForm extends React.Component {
 
     state = {
@@ -73,6 +72,24 @@ class PaymentForm extends React.Component {
         name: "",
         number: "",
     };
+
+    _renderCard = () => () => {
+        const [cardnumber, setCardnumber] = useState("");
+
+        return <div>{cardnumber}</div>
+    }
+
+    _renderName = () => () => {
+        const [name, setName] = useState("");
+
+        return <div>{name}</div>
+    }
+
+    _renderExpiration = () => () => {
+        const [monthYear, setMonthYear] = useState("");
+
+        return <div>{monthYear}</div>
+    }
 
     handleInputFocus = e => {
         this.setState({ focus: e.target.name });
@@ -84,8 +101,20 @@ class PaymentForm extends React.Component {
         this.setState({ [name]: value });
     };
 
-
     render() {
+
+        // const [isValid, setIsValid] = useState(false);
+
+        // const form = useRef(null);
+
+        // useEffect(() => {
+        //   const isCreditCardValid = cardnumber.replaceAll(" ", "").length === 16;
+        //   const isMonthYearValid = monthYear.replace("/", "").length === 4;
+        //   setIsValid(
+        //     form.current.checkValidity() && isMonthYearValid && isCreditCardValid
+        //   );
+        // }, [name, cardnumber, monthYear]);
+
         return (
             <div id="PaymentForm">
                 <Cards
@@ -96,39 +125,61 @@ class PaymentForm extends React.Component {
                     number={this.state.number}
                 />
                 <form>
-                    <input
-                        type="tel"
-                        name="number"
-                        placeholder="Card Number"
-                        maxLength="16" pattern="/^4[0-9]{12}(?:[0-9]{3})?$/"
-                        onChange={this.handleInputChange}
-                        onFocus={this.handleInputFocus}
-                    />
-                    <input
-                        type="tel"
-                        name="name"
-                        placeholder="Cardholder"
-                        onChange={this.handleInputChange}
-                        onFocus={this.handleInputFocus}
-                    />
-                    <input
-                        type="tel"
-                        name="expiry"
-                        maxLength="4"
-                        placeholder="Expiration Date"
-                        onChange={this.handleInputChange}
-                        onFocus={this.handleInputFocus}
-                    />
-                    <input
-                        type="tel"
-                        name="cvc"
-                        placeholder="CVC"
-                        maxLength="3"
-                        onChange={this.handleInputChange}
-                        onFocus={this.handleInputFocus}
-                    />
+                    <div className="form-control">
+                        <label htmlFor="name">Name</label>
+                        <Input
+                            name="name"
+                            type="text"
+                            required
+                            minLength="2"
+                            value={this.name}
+                            onChange={this.handleInputChange}
+                            onFocus={this.handleInputFocus}
+                        />
+                    </div>
+                    <div className="form-control">
+                        <label htmlFor="cardnumber">Card number</label>
+                        <InputMask name="number"
+                            mask="9999 9999 9999 9999"
+                            value={this.cardnumber}
+                            maskChar=""
+                            className="ant-input"
+                            onChange={this.handleInputChange}
+                            onFocus={this.handleInputFocus}
+                            required
+                        />
+                    </div>
+                    <div className="form-control">
+                        <label htmlFor="monthyear">Expiration date</label>
+                        <InputMask
+                            mask="99/99"
+                            maskChar=""
+                            name="expiry"
+                            className="ant-input"
+                            required
+                            value={this.monthYear}
+                            onChange={this.handleInputChange}
+                            onFocus={this.handleInputFocus}
+                            minLength="17"
+                        ></InputMask>
+                    </div>
+                    <div className="form-control">
+                        <label htmlFor="monthyear">CVC</label>
+                        <InputMask
+                            mask="999"
+                            maskChar=""
+                            name="cvc"
+                            className="ant-input"
+                            required
+                            value={this.cvc}
+                            onChange={this.handleInputChange}
+                            onFocus={this.handleInputFocus}
+                            minLength="17"
+                        ></InputMask>
+                    </div>
+                    {/*<Button type="primary" htmlType="submit" disabled={!isValid}>Submit</Button>*/}
                 </form>
-            </div>
+            </div >
         );
     }
 }

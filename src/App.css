@@ -197,3 +197,22 @@ main {
   border: 1px solid #0a0a0a;
   padding: 25px;
 }
+
+label,
+input {
+  display: block;
+  text-align: left;
+  margin-bottom: 5px;
+}
+
+.form-control {
+  margin-bottom: 10px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+  padding: 30px;
+  margin: auto;
+}
