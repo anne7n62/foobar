@@ -1,4 +1,5 @@
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
+import { Redirect } from 'react-router-dom';
 
 import React from 'react';
 import { useState, useEffect } from "react";
@@ -17,12 +18,7 @@ function Payment(props) {
         return { name: order.product.name, amount: Number(order.amount) };
     });
 
-    // Hej Annemette
-
-    // Skal vi bruge denne?
-    // filteredPostOrders = filteredPostOrders.filter(order => {
-    //     return order !== undefined;
-    // });
+    let location = useHistory();
 
     console.log(filteredPostOrders);
 
@@ -36,11 +32,14 @@ function Payment(props) {
             </div>
             <div className="PaymentDetails">
                 <h1>Payment Details</h1>
-                <PaymentForm />
-                <button onClick={() => orderSubmit(filteredPostOrders)}>Test</button>
-                <Link to="/thanks">
-                    <button className="SubmitButton">Complete order</button>
-                </Link>
+                <form onSubmit={e => {
+                    e.preventDefault();
+                    orderSubmit(filteredPostOrders);
+                    location.push("/thanks");
+                }}>
+                    <PaymentForm />
+                    <button type="primary" className="SubmitButton" type="submit">Submit</button>
+                </form>
             </div>
         </div>
     );
@@ -54,7 +53,7 @@ function orderSubmit(fullData) {
         data => {
             return data.message === 'Order went through' ? (
                 <div>
-                    <h1>success</h1>
+
                 </div>
             ) : (
                 <div> error </div>
@@ -63,7 +62,9 @@ function orderSubmit(fullData) {
     );
 }
 
-// Mangler validering....
+function ThankYou() {
+    console.log("Thankyou")
+}
 
 class PaymentForm extends React.Component {
 
@@ -104,18 +105,6 @@ class PaymentForm extends React.Component {
     };
 
     render() {
-        // const [isValid, setIsValid] = useState(false);
-
-        // const form = useRef(null);
-
-        // useEffect(() => {
-        //   const isCreditCardValid = cardnumber.replaceAll(" ", "").length === 16;
-        //   const isMonthYearValid = monthYear.replace("/", "").length === 4;
-        //   setIsValid(
-        //     form.current.checkValidity() && isMonthYearValid && isCreditCardValid
-        //   );
-        // }, [name, cardnumber, monthYear]);
-
         return (
             <div id="PaymentForm">
                 <Cards
@@ -125,61 +114,58 @@ class PaymentForm extends React.Component {
                     name={this.state.name}
                     number={this.state.number}
                 />
-                <form>
-                    <div className="form-control">
-                        <label htmlFor="name">Name</label>
-                        <Input
-                            name="name"
-                            type="text"
-                            required
-                            minLength="2"
-                            value={this.name}
-                            onChange={this.handleInputChange}
-                            onFocus={this.handleInputFocus}
-                        />
-                    </div>
-                    <div className="form-control">
-                        <label htmlFor="cardnumber">Card number</label>
-                        <InputMask name="number"
-                            mask="9999 9999 9999 9999"
-                            value={this.cardnumber}
-                            maskChar=""
-                            className="ant-input"
-                            onChange={this.handleInputChange}
-                            onFocus={this.handleInputFocus}
-                            required
-                        />
-                    </div>
-                    <div className="form-control">
-                        <label htmlFor="monthyear">Expiration date</label>
-                        <InputMask
-                            mask="99/99"
-                            maskChar=""
-                            name="expiry"
-                            className="ant-input"
-                            required
-                            value={this.monthYear}
-                            onChange={this.handleInputChange}
-                            onFocus={this.handleInputFocus}
-                            minLength="17"
-                        ></InputMask>
-                    </div>
-                    <div className="form-control">
-                        <label htmlFor="monthyear">CVC</label>
-                        <InputMask
-                            mask="999"
-                            maskChar=""
-                            name="cvc"
-                            className="ant-input"
-                            required
-                            value={this.cvc}
-                            onChange={this.handleInputChange}
-                            onFocus={this.handleInputFocus}
-                            minLength="17"
-                        ></InputMask>
-                    </div>
-                    {/*<Button type="primary" htmlType="submit" disabled={!isValid}>Submit</Button>*/}
-                </form>
+                <div className="form-control">
+                    <label htmlFor="name">Name</label>
+                    <Input
+                        name="name"
+                        type="text"
+                        required
+                        minLength="2"
+                        value={this.name}
+                        onChange={this.handleInputChange}
+                        onFocus={this.handleInputFocus}
+                    />
+                </div>
+                <div className="form-control">
+                    <label htmlFor="cardnumber">Card number</label>
+                    <InputMask name="number"
+                        mask="9999 9999 9999 9999"
+                        value={this.cardnumber}
+                        maskChar=""
+                        className="ant-input"
+                        onChange={this.handleInputChange}
+                        onFocus={this.handleInputFocus}
+                        required
+                    />
+                </div>
+                <div className="form-control">
+                    <label htmlFor="monthyear">Expiration date</label>
+                    <InputMask
+                        mask="99/99"
+                        maskChar=""
+                        name="expiry"
+                        className="ant-input"
+                        required
+                        value={this.monthYear}
+                        onChange={this.handleInputChange}
+                        onFocus={this.handleInputFocus}
+                        minLength="17"
+                    ></InputMask>
+                </div>
+                <div className="form-control">
+                    <label htmlFor="monthyear">CVC</label>
+                    <InputMask
+                        mask="999"
+                        maskChar=""
+                        name="cvc"
+                        className="ant-input"
+                        required
+                        value={this.cvc}
+                        onChange={this.handleInputChange}
+                        onFocus={this.handleInputFocus}
+                        minLength="17"
+                    ></InputMask>
+                </div>
             </div >
         );
     }

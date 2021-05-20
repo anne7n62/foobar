@@ -222,7 +222,7 @@ input {
   margin-bottom: 10px;
 }
 
-form {
+#PaymentForm {
   display: flex;
   flex-direction: column;
   width: 300px;
@@ -236,4 +236,22 @@ form {
 
 .filternav button {
   margin-right: 25px;
+}
+
+input:invalid:not(:placeholder-shown, :focus) {
+  /* background-image: url('../../img/invalid.png'); */
+  background-repeat: no-repeat;
+  background-position: 95% 19px;
+  background-size: 3.5%;
+  border-color:#F48D69;
+  animation: shake .125s 2 backwards;
+}
+
+@keyframes shake {
+  25% {
+      transform: translateX(-6px);
+  }
+  75% {
+      transform: translateX(6px);
+  }
 }
