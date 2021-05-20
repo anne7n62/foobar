@@ -28,6 +28,19 @@ main {
   padding: 25px;
   position: relative;
   height: 600px;
+  border: 1px solid #0a0a0a;
+}
+
+.filternav {
+  padding-left: 0;
+}
+
+.filternav button {
+  padding: 5px 18px;
+  border: none;
+  color: #fff;
+  background-color: #0a0a0a;
+  cursor: pointer;
 }
 
 .product_img img {
