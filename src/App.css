@@ -216,3 +216,11 @@ form {
   padding: 30px;
   margin: auto;
 }
+
+.filternav {
+  grid-column: 1/-1;
+}
+
+.filternav button {
+  margin-right: 25px;
+}

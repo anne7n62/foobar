@@ -13,6 +13,7 @@ function App() {
   const [products, setProducts] = useState([]);
   const [foobar, setFoobar] = useState({ taps: [] });
   const [basket, setBasket] = useState([]);
+  const [category, setCategory] = useState('All');
 
   useEffect(() => {
     FetchBeerTypes();
@@ -50,6 +51,28 @@ function App() {
       });
   }
 
+
+  //arr that has all the names of beers that on tap.
+  const beersFromTap = foobar.taps.map(beer => beer.beer);
+  const filteredBeers = products.filter(beers =>
+    beersFromTap.includes(beers.name)
+  );
+  const btnCategories = products.filter(beers =>
+    beersFromTap.includes(beers.name)
+  );
+
+
+  let clickFilteredBeers = filteredBeers.filter(
+    beer => beer.category === category
+  );
+
+  if (category === 'All') {
+    clickFilteredBeers = filteredBeers;
+  }
+
+  // console.log(products)
+  // console.log(foobar.taps)
+  // console.log(filteredBeers)
 
   function addToBasket(product) {
     // Check if a product of this type is already in the basket
@@ -90,7 +113,7 @@ function App() {
             exact
             render={() => (
               <main>
-                <ProductList className="ProductList" taps={foobar.taps} products={products} addToBasket={addToBasket} removeFromBasket={removeFromBasket} basket={basket} />
+                <ProductList className="ProductList" btnCategories={btnCategories} setCategory={setCategory} filteredBeers={clickFilteredBeers} taps={foobar.taps} products={products} addToBasket={addToBasket} removeFromBasket={removeFromBasket} basket={basket} />
                 <Basket basket={basket} addToBasket={addToBasket} removeFromBasket={removeFromBasket} />
               </main>
             )}
