@@ -102,7 +102,6 @@ class PaymentForm extends React.Component {
     };
 
     render() {
-
         // const [isValid, setIsValid] = useState(false);
 
         // const form = useRef(null);
