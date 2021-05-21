@@ -247,6 +247,10 @@ input:invalid:not(:placeholder-shown, :focus) {
   animation: shake .125s 2 backwards;
 }
 
+input:valid {
+  border-color:green;
+}
+
 @keyframes shake {
   25% {
       transform: translateX(-6px);
