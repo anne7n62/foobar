@@ -14,6 +14,7 @@ function App() {
   const [foobar, setFoobar] = useState({ taps: [] });
   const [basket, setBasket] = useState([]);
   const [category, setCategory] = useState('All');
+  const [orderId, setOrderId] = useState("0");
 
   function fetchBeerTypes() {
     //Fetch beertypes from Heroku
@@ -54,6 +55,10 @@ function App() {
 
   //arr that has all the names of beers that on tap.
   const beersFromTap = foobar.taps.map(beer => beer.beer);
+
+  // const basketPrices = basket.map(beer => beer.product.price);
+
+  // console.log(basketPrices)
 
   const filteredBeers = products.filter(beers =>
     beersFromTap.includes(beers.name)
@@ -119,9 +124,9 @@ function App() {
               </main>
             )}
           />
-          <Route path="/payment" render={() => <Payment basket={basket}></Payment>} />
+          <Route path="/payment" render={() => <Payment basket={basket} setOrderId={setOrderId} orderId={orderId}></Payment>} />
           <Route path="/thanks">
-            <ThankYou />
+            <ThankYou orderId={orderId} />
           </Route>
         </Switch>
       </div>

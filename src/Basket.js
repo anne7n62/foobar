@@ -1,17 +1,13 @@
+import BasketMessage from "./BasketMessage.js";
 import MyBasket from "./MyBasket.js";
-import { BrowserRouter as Link } from "react-router-dom";
 
 function Basket(props) {
   return (
     <div className="Basket">
-      <MyBasket {...props}></MyBasket>
-      {props.basket.length > 0 && <SubmitButton></SubmitButton>}
+      {props.basket.length > 0 && <MyBasket {...props}></MyBasket>}
+      {props.basket.length === 0 && <BasketMessage></BasketMessage>}
     </div>
   );
-}
-
-function SubmitButton() {
-  return <Link to="/payment"><button className="SubmitButton">Go to payment</button></Link>;
 }
 
 export default Basket;

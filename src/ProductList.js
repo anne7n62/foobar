@@ -3,7 +3,6 @@ import Product from "./Product.js";
 function ProductList({ btnCategories, products, filteredBeers, addToBasket, removeFromBasket, basket, taps, setCategory }) {
   const productlist = filteredBeers.map((tap) => <Product className="Product" tap={tap} filteredBeers={filteredBeers} basket={basket} products={products} key={tap.id} addToBasket={addToBasket} removeFromBasket={removeFromBasket}></Product>);
 
-  console.log(products);
   return (
     <>
       <div className="ProductList">

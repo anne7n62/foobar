@@ -30,7 +30,7 @@ function Product({ products, addToBasket, removeFromBasket, filteredBeers, baske
         <button disabled={count === 0} onClick={() => removeFromBasket(infoObject)}>
           -
         </button>
-        <input type="text" value={count} />
+        <input type="text" value={count} onChange="" />
         <button onClick={() => addToBasket(infoObject)}>+</button>
       </div>
     </div>

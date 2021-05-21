@@ -1,6 +1,20 @@
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+
 import BasketMessage from "./BasketMessage";
 
 function MyBasket({ basket, ...rest }) {
+
+  const totalArr = basket.map((beer) => {
+
+    const priceObject = beer.amount * beer.product.price;
+
+    return priceObject;
+  });
+
+  const totalAmount = totalArr.reduce(
+    (previousScore, currentScore, index) => previousScore + currentScore,
+    0);
+
   return (
     <>
       <ul className="BasketList">
@@ -9,36 +23,16 @@ function MyBasket({ basket, ...rest }) {
         ))}
       </ul>
       {basket.length < 1 && <BasketMessage />}
-      <BasketTotal basket={basket} />
-    </>
-  );
-}
-
-function BasketTotal({ basket }) {
-  console.log(basket)
-
-  return (
-    <div className="BasketTotal">
-      {basket.map((item) => (
-        <EachBeerTotal  {...item} />
-      ))}
       <p>Total:</p>
-      <span className="TotalPrice">500 DKK</span>
-    </div>
-  );
-}
-
-function EachBeerTotal(props) {
-  const eachBeerTotalPrice = props.amount * props.product.price;
-
-
-  return (
-    <>
-      <p>{eachBeerTotalPrice}</p>
+      <span className="">{totalAmount} DKK</span>
+      <SubmitButton></SubmitButton>
     </>
   );
 }
 
+function SubmitButton() {
+  return <Link to="/payment"><button className="SubmitButton">Go to payment</button></Link>;
+}
 
 function BasketItem(props) {
   const newBeerPrice = props.amount * props.product.price;

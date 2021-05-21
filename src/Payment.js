@@ -1,7 +1,8 @@
-import { useHistory } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
+import { Redirect } from 'react-router-dom';
 
 import React from 'react';
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Input } from "antd";
 import InputMask from "react-input-mask";
 import Cards from 'react-credit-cards';
@@ -21,13 +22,41 @@ function Payment(props) {
 
     console.log(filteredPostOrders);
 
+    const totalArr = props.basket.map((beer) => {
+
+        const priceObject = beer.amount * beer.product.price;
+
+        return priceObject;
+    });
+
+    const totalAmount = totalArr.reduce(
+        (previousScore, currentScore, index) => previousScore + currentScore,
+        0);
+
+    function orderSubmit(fullData) {
+        postData(
+            fullData,
+            'https://dreaming-of-foobar.herokuapp.com/order',
+            data => {
+                return data.message === "added" ? (
+                    <div>
+                        {props.setOrderId(data.id)}
+                        {console.log(data.id)}
+                    </div>
+                ) : null;
+            }
+        );
+    }
+
+
+
     return (
         <div className="Payment">
             <div className="BasketDetails">
                 <h1>Basket details</h1>
                 <PaymentBasket {...props} />
                 <p>Total:</p>
-                <span className="TotalPrice">500 DKK</span>
+                <span className="TotalPrice">{totalAmount} DKK</span>
             </div>
             <div className="PaymentDetails">
                 <h1>Payment Details</h1>
@@ -41,23 +70,6 @@ function Payment(props) {
                 </form>
             </div>
         </div>
-    );
-}
-
-
-function orderSubmit(fullData) {
-    postData(
-        fullData,
-        'https://dreaming-of-foobar.herokuapp.com/order',
-        data => {
-            return data.message === 'Order went through' ? (
-                <div>
-
-                </div>
-            ) : (
-                <div> error </div>
-            );
-        }
     );
 }
 
