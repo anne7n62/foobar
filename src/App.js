@@ -15,11 +15,7 @@ function App() {
   const [basket, setBasket] = useState([]);
   const [category, setCategory] = useState('All');
 
-  useEffect(() => {
-    FetchBeerTypes();
-  }, []);
-
-  function FetchBeerTypes() {
+  function fetchBeerTypes() {
     //Fetch beertypes from Heroku
     fetch("https://dreaming-of-foobar.herokuapp.com/beertypes")
       .then((resp) => resp.json())
@@ -36,6 +32,10 @@ function App() {
         fetchAvailable("https://dreaming-of-foobar.herokuapp.com");
       });
   }
+
+  useEffect(() => {
+    fetchBeerTypes();
+  }, []);
 
   function fetchAvailable(url) {
 
@@ -54,6 +54,7 @@ function App() {
 
   //arr that has all the names of beers that on tap.
   const beersFromTap = foobar.taps.map(beer => beer.beer);
+
   const filteredBeers = products.filter(beers =>
     beersFromTap.includes(beers.name)
   );

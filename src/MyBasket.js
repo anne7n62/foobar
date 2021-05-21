@@ -9,11 +9,40 @@ function MyBasket({ basket, ...rest }) {
         ))}
       </ul>
       {basket.length < 1 && <BasketMessage />}
+      <BasketTotal basket={basket} />
     </>
   );
 }
 
+function BasketTotal({ basket }) {
+  console.log(basket)
+
+  return (
+    <div className="BasketTotal">
+      {basket.map((item) => (
+        <EachBeerTotal  {...item} />
+      ))}
+      <p>Total:</p>
+      <span className="TotalPrice">500 DKK</span>
+    </div>
+  );
+}
+
+function EachBeerTotal(props) {
+  const eachBeerTotalPrice = props.amount * props.product.price;
+
+
+  return (
+    <>
+      <p>{eachBeerTotalPrice}</p>
+    </>
+  );
+}
+
+
 function BasketItem(props) {
+  const newBeerPrice = props.amount * props.product.price;
+
   return (
     <li>
       <div className="BasketItem">
@@ -26,7 +55,7 @@ function BasketItem(props) {
           <input type="text" disabled value={props.amount} />
           <button onClick={() => props.addToBasket(props.product)}>+</button>
         </div>
-        <span className="BasketItemPrice">{props.product.price} DKK</span>
+        <span className="BasketItemPrice">{newBeerPrice}</span>
       </div>
     </li>
   );
