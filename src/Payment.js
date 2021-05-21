@@ -1,8 +1,7 @@
-import { Link, useHistory } from "react-router-dom";
-import { Redirect } from 'react-router-dom';
+import { useHistory } from "react-router-dom";
 
 import React from 'react';
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { Input } from "antd";
 import InputMask from "react-input-mask";
 import Cards from 'react-credit-cards';
@@ -62,10 +61,6 @@ function orderSubmit(fullData) {
     );
 }
 
-function ThankYou() {
-    console.log("Thankyou")
-}
-
 class PaymentForm extends React.Component {
 
     state = {
@@ -77,19 +72,19 @@ class PaymentForm extends React.Component {
     };
 
     _renderCard = () => () => {
-        const [cardnumber, setCardnumber] = useState("");
+        const [cardnumber] = useState("");
 
         return <div>{cardnumber}</div>
     }
 
     _renderName = () => () => {
-        const [name, setName] = useState("");
+        const [name] = useState("");
 
         return <div>{name}</div>
     }
 
     _renderExpiration = () => () => {
-        const [monthYear, setMonthYear] = useState("");
+        const [monthYear] = useState("");
 
         return <div>{monthYear}</div>
     }
