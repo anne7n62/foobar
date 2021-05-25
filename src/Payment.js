@@ -1,4 +1,4 @@
-import { Link, useHistory } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 //import { Redirect } from 'react-router-dom';
 
 import React from "react";
@@ -66,7 +66,6 @@ function Payment(props) {
     </div>
   );
 }
-
 class PaymentForm extends React.Component {
   state = {
     cvc: "",
