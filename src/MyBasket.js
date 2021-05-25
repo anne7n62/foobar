@@ -1,19 +1,15 @@
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import { BrowserRouter as Link } from "react-router-dom";
 
 import BasketMessage from "./BasketMessage";
 
 function MyBasket({ basket, ...rest }) {
-
   const totalArr = basket.map((beer) => {
-
     const priceObject = beer.amount * beer.product.price;
 
     return priceObject;
   });
 
-  const totalAmount = totalArr.reduce(
-    (previousScore, currentScore, index) => previousScore + currentScore,
-    0);
+  const totalAmount = totalArr.reduce((previousScore, currentScore, index) => previousScore + currentScore, 0);
 
   return (
     <>
@@ -31,7 +27,11 @@ function MyBasket({ basket, ...rest }) {
 }
 
 function SubmitButton() {
-  return <Link to="/payment"><button className="SubmitButton">Go to payment</button></Link>;
+  return (
+    <Link to="/payment">
+      <button className="SubmitButton">Go to payment</button>
+    </Link>
+  );
 }
 
 function BasketItem(props) {
