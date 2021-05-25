@@ -3,7 +3,7 @@
 }
 
 nav {
-  height: 60px;
+  height: 65px;
 }
 
 nav a {
@@ -84,7 +84,7 @@ main {
 .BasketItemImg {
   display: inline-block;
   margin-right: 20px;
-  }
+}
 
 .BasketItemHeading {
   position: absolute;
@@ -243,19 +243,19 @@ input:invalid:not(:placeholder-shown, :focus) {
   background-repeat: no-repeat;
   background-position: 95% 19px;
   background-size: 3.5%;
-  border-color:#F48D69;
-  animation: shake .125s 2 backwards;
+  border-color: #f48d69;
+  animation: shake 0.125s 2 backwards;
 }
 
 input:valid {
-  border-color:green;
+  border-color: green;
 }
 
 @keyframes shake {
   25% {
-      transform: translateX(-6px);
+    transform: translateX(-6px);
   }
   75% {
-      transform: translateX(6px);
+    transform: translateX(6px);
   }
 }
