@@ -58,7 +58,7 @@ function Payment(props) {
           }}
         >
           <PaymentForm />
-          <button type="primary" className="SubmitButton" type="submit">
+          <button className="SubmitButton" type="submit">
             Submit
           </button>
         </form>
