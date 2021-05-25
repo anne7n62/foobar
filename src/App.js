@@ -13,7 +13,7 @@ function App() {
   const [products, setProducts] = useState([]);
   const [foobar, setFoobar] = useState({ taps: [] });
   const [basket, setBasket] = useState([]);
-  const [category, setCategory] = useState('All');
+  const [category, setCategory] = useState("All");
   const [orderId, setOrderId] = useState("0");
 
   function fetchBeerTypes() {
@@ -36,10 +36,9 @@ function App() {
 
   useEffect(() => {
     fetchBeerTypes();
-  }, []);
+  });
 
   function fetchAvailable(url) {
-
     fetch(url)
       .then((resp) => resp.json())
       .then((json) => {
@@ -52,27 +51,19 @@ function App() {
       });
   }
 
-
   //arr that has all the names of beers that on tap.
-  const beersFromTap = foobar.taps.map(beer => beer.beer);
+  const beersFromTap = foobar.taps.map((beer) => beer.beer);
 
   // const basketPrices = basket.map(beer => beer.product.price);
 
   // console.log(basketPrices)
 
-  const filteredBeers = products.filter(beers =>
-    beersFromTap.includes(beers.name)
-  );
-  const btnCategories = products.filter(beers =>
-    beersFromTap.includes(beers.name)
-  );
+  const filteredBeers = products.filter((beers) => beersFromTap.includes(beers.name));
+  const btnCategories = products.filter((beers) => beersFromTap.includes(beers.name));
 
+  let clickFilteredBeers = filteredBeers.filter((beer) => beer.category === category);
 
-  let clickFilteredBeers = filteredBeers.filter(
-    beer => beer.category === category
-  );
-
-  if (category === 'All') {
+  if (category === "All") {
     clickFilteredBeers = filteredBeers;
   }
 
@@ -119,7 +110,17 @@ function App() {
             exact
             render={() => (
               <main>
-                <ProductList className="ProductList" btnCategories={btnCategories} setCategory={setCategory} filteredBeers={clickFilteredBeers} taps={foobar.taps} products={products} addToBasket={addToBasket} removeFromBasket={removeFromBasket} basket={basket} />
+                <ProductList
+                  className="ProductList"
+                  btnCategories={btnCategories}
+                  setCategory={setCategory}
+                  filteredBeers={clickFilteredBeers}
+                  taps={foobar.taps}
+                  products={products}
+                  addToBasket={addToBasket}
+                  removeFromBasket={removeFromBasket}
+                  basket={basket}
+                />
                 <Basket basket={basket} addToBasket={addToBasket} removeFromBasket={removeFromBasket} />
               </main>
             )}
