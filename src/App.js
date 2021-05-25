@@ -52,7 +52,6 @@ function App() {
       });
   }
 
-
   //arr that has all the names of beers that on tap.
   const beersFromTap = foobar.taps.map(beer => beer.beer);
 
@@ -124,7 +123,9 @@ function App() {
               </main>
             )}
           />
-          <Route path="/payment" render={() => <Payment basket={basket} setOrderId={setOrderId} orderId={orderId}></Payment>} />
+          <Route path="/payment" render={() =>
+            <Payment basket={basket} setOrderId={setOrderId} orderId={orderId}>
+            </Payment>} />
           <Route path="/thanks">
             <ThankYou orderId={orderId} />
           </Route>

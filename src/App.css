@@ -53,6 +53,13 @@ main {
   bottom: 35px;
 }
 
+.counterNumber {
+  position: relative;
+  font-size: 18px;
+  top: 5px;
+  left: 15px;
+}
+
 .ProductPrice {
   position: absolute;
   right: 40px;

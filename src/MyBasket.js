@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import { BrowserRouter as Switch, Link } from "react-router-dom";
 
 import BasketMessage from "./BasketMessage";
 
@@ -25,13 +25,15 @@ function MyBasket({ basket, ...rest }) {
       {basket.length < 1 && <BasketMessage />}
       <p>Total:</p>
       <span className="">{totalAmount} DKK</span>
-      <SubmitButton></SubmitButton>
+      <Link to="/payment">
+        <SubmitButton></SubmitButton>
+      </Link>
     </>
   );
 }
 
 function SubmitButton() {
-  return <Link to="/payment"><button className="SubmitButton">Go to payment</button></Link>;
+  return <button className="SubmitButton">Go to payment</button>;
 }
 
 function BasketItem(props) {

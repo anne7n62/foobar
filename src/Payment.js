@@ -1,8 +1,7 @@
-import { Link, useHistory } from "react-router-dom";
-import { Redirect } from 'react-router-dom';
+import { useHistory } from "react-router-dom";
 
 import React from 'react';
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { Input } from "antd";
 import InputMask from "react-input-mask";
 import Cards from 'react-credit-cards';
@@ -66,7 +65,7 @@ function Payment(props) {
                     location.push("/thanks");
                 }}>
                     <PaymentForm />
-                    <button type="primary" className="SubmitButton" type="submit">Submit</button>
+                    <button className="SubmitButton" type="submit">Submit</button>
                 </form>
             </div>
         </div>
@@ -135,10 +134,11 @@ class PaymentForm extends React.Component {
                 </div>
                 <div className="form-control">
                     <label htmlFor="cardnumber">Card number</label>
-                    <InputMask name="number"
+                    <Input name="number"
                         mask="9999 9999 9999 9999"
                         value={this.cardnumber}
-                        maskChar=""
+                        maskchar=""
+                        minLength="16"
                         className="ant-input"
                         onChange={this.handleInputChange}
                         onFocus={this.handleInputFocus}
@@ -149,7 +149,7 @@ class PaymentForm extends React.Component {
                     <label htmlFor="monthyear">Expiration date</label>
                     <InputMask
                         mask="99/99"
-                        maskChar=""
+                        maskchar=""
                         name="expiry"
                         className="ant-input"
                         required
@@ -163,7 +163,7 @@ class PaymentForm extends React.Component {
                     <label htmlFor="monthyear">CVC</label>
                     <InputMask
                         mask="999"
-                        maskChar=""
+                        maskchar=""
                         name="cvc"
                         className="ant-input"
                         required

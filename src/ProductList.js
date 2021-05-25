@@ -1,7 +1,7 @@
 import Product from "./Product.js";
 
 function ProductList({ btnCategories, products, filteredBeers, addToBasket, removeFromBasket, basket, taps, setCategory }) {
-  const productlist = filteredBeers.map((tap) => <Product className="Product" tap={tap} filteredBeers={filteredBeers} basket={basket} products={products} key={tap.id} addToBasket={addToBasket} removeFromBasket={removeFromBasket}></Product>);
+  const productlist = filteredBeers.map((tap) => <Product className="Product" tap={tap} filteredBeers={filteredBeers} basket={basket} products={products} key={tap.name} addToBasket={addToBasket} removeFromBasket={removeFromBasket}></Product>);
 
   return (
     <>
@@ -25,10 +25,10 @@ function FilterNav({ products, setCategory, taps, btnCategories }) {
     }
   });
 
-  const filterbtns = categories.map((category) => <Filterbtn className="filterbtn" products={products} updateCategory={updateCategory} category={category}></Filterbtn>);
+  const filterbtns = categories.map((category) => <Filterbtn className="filterbtn" products={products} updateCategory={updateCategory} key={category} category={category}></Filterbtn>);
 
   return (
-    <ul className="filternav">
+    <div className="filternav">
       <button
         className='filters'
         onClick={updateCategory}
@@ -36,7 +36,7 @@ function FilterNav({ products, setCategory, taps, btnCategories }) {
         All
           </button>
       {filterbtns}
-    </ul>
+    </div>
   );
 }
 
