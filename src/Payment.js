@@ -19,7 +19,7 @@ function Payment(props) {
 
     let location = useHistory();
 
-    console.log(filteredPostOrders);
+    // console.log(filteredPostOrders);
 
     const totalArr = props.basket.map((beer) => {
 
