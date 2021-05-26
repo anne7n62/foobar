@@ -16,7 +16,7 @@ function App() {
   const [category, setCategory] = useState("All");
   const [orderId, setOrderId] = useState("0");
 
-  useFetch("https://dreaming-of-foobar.herokuapp.com");
+  useFetch("https://dreaming-of-foobar.herokuapp.com/beertypes");
 
   function useFetch(url) {
     useEffect(() => {
