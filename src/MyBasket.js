@@ -1,4 +1,4 @@
-import { BrowserRouter as Switch, Link } from "react-router-dom";
+import { BrowserRouter as Link } from "react-router-dom"; //Switch,
 
 import BasketMessage from "./BasketMessage";
 
