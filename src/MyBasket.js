@@ -25,15 +25,15 @@ function MyBasket({ basket, ...rest }) {
       {basket.length < 1 && <BasketMessage />}
       <p>Total:</p>
       <span className="">{totalAmount} DKK</span>
-      <Link to="/payment">
-        <SubmitButton></SubmitButton>
-      </Link>
+      <SubmitButton></SubmitButton>
     </>
   );
 }
 
 function SubmitButton() {
-  return <button className="SubmitButton">Go to payment</button>;
+  return <Link to="/payment">
+    <button className="SubmitButton">Go to payment</button>
+  </Link>
 }
 
 function BasketItem(props) {
