@@ -134,7 +134,6 @@ function App() {
             exact
             render={() => (
               <main>
-                <h1>Test</h1>
                 <ProductList
                   className="ProductList"
                   btnCategories={btnCategories}
