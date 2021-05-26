@@ -16,11 +16,12 @@ function App() {
   const [category, setCategory] = useState("All");
   const [orderId, setOrderId] = useState("0");
 
-  function fetchBeerTypes() {
-    //Fetch beertypes from Heroku
-    fetch("https://dreaming-of-foobar.herokuapp.com/beertypes")
-      .then((resp) => resp.json())
-      .then((json) => {
+  useFetch("https://dreaming-of-foobar.herokuapp.com");
+
+  function useFetch(url) {
+    useEffect(() => {
+      async function fetchFromAPI() {
+        const json = await (await fetch(url)).json();
         const nextJSON = json.map((beer) => {
           //laver nyt object. Match mellem names
           const priceObject = prices.find((item) => item.name === beer.name);
@@ -30,13 +31,36 @@ function App() {
         });
 
         setProducts(nextJSON);
-        fetchAvailable("https://dreaming-of-foobar.herokuapp.com");
-      });
+      }
+
+      fetchAvailable("https://dreaming-of-foobar.herokuapp.com");
+      fetchFromAPI();
+    }, [url]);
+
+    return foobar;
   }
 
-  useEffect(() => {
-    fetchBeerTypes();
-  });
+  // function fetchBeerTypes() {
+  //   //Fetch beertypes from Heroku
+  //   fetch("https://dreaming-of-foobar.herokuapp.com/beertypes")
+  //     .then((resp) => resp.json())
+  //     .then((json) => {
+  //       const nextJSON = json.map((beer) => {
+  //         //laver nyt object. Match mellem names
+  //         const priceObject = prices.find((item) => item.name === beer.name);
+  //         //opretter en egenskab til beer der hedder pris
+  //         beer.price = priceObject.price;
+  //         return beer;
+  //       });
+
+  //       setProducts(nextJSON);
+  //       fetchAvailable("https://dreaming-of-foobar.herokuapp.com");
+  //     });
+  // }
+
+  // useEffect(() => {
+  //   fetchBeerTypes();
+  // });
 
   function fetchAvailable(url) {
     fetch(url)
@@ -125,9 +149,7 @@ function App() {
               </main>
             )}
           />
-          <Route path="/payment" render={() =>
-            <Payment basket={basket} setOrderId={setOrderId} orderId={orderId}>
-            </Payment>} />
+          <Route path="/payment" render={() => <Payment basket={basket} setOrderId={setOrderId} orderId={orderId}></Payment>} />
           <Route path="/thanks">
             <ThankYou orderId={orderId} />
           </Route>
