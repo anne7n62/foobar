@@ -1,19 +1,15 @@
-import { BrowserRouter as Switch, Link } from "react-router-dom"; //Switch,
+import { BrowserRouter as Link } from "react-router-dom"; //Switch,
 
 import BasketMessage from "./BasketMessage";
 
 function MyBasket({ basket, ...rest }) {
-
   const totalArr = basket.map((beer) => {
-
     const priceObject = beer.amount * beer.product.price;
 
     return priceObject;
   });
 
-  const totalAmount = totalArr.reduce(
-    (previousScore, currentScore, index) => previousScore + currentScore,
-    0);
+  const totalAmount = totalArr.reduce((previousScore, currentScore, index) => previousScore + currentScore, 0);
 
   return (
     <>
@@ -31,7 +27,6 @@ function MyBasket({ basket, ...rest }) {
     </>
   );
 }
-
 
 function BasketItem(props) {
   const newBeerPrice = props.amount * props.product.price;

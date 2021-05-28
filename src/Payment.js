@@ -38,7 +38,7 @@ function Payment(props) {
           }}
         >
           <PaymentForm />
-          <button type="primary" className="SubmitButton" type="submit">
+          <button className="SubmitButton" type="submit">
             Submit
           </button>
         </form>
@@ -90,7 +90,7 @@ class PaymentForm extends React.Component {
   };
 
   handleInputBlurCC = (e) => {
-    if (e.target.value.length != 19) {
+    if (e.target.value.length !== 19) {
       this.setState({ cardnumberValid: false });
       // this.errorCC.style={{display: visible }}
     } else {
@@ -99,7 +99,7 @@ class PaymentForm extends React.Component {
   };
 
   handleInputBlurDate = (e) => {
-    if (e.target.value.length != 5) {
+    if (e.target.value.length !== 5) {
       this.setState({ dateValid: false });
     } else {
       this.setState({ dateValid: true });
