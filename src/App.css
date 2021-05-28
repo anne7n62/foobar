@@ -245,17 +245,32 @@ input {
   margin-right: 25px;
 }
 
-input:invalid:not(:placeholder-shown, :focus) {
-  /* background-image: url('../../img/invalid.png'); */
+/******FORM VALIDATION*****/
+
+.error-message {
+  color: #f47e69;
+  max-height: 0;
+  overflow: hidden;
+  transition: 0.3s max-height;
+}
+
+input:not(:focus, :placeholder-shown):invalid ~ .error-message {
+  max-height: 2rem;
+}
+
+input:not(:focus, :placeholder-shown):valid {
+  border-color: green;
+}
+
+input:not(:focus, :placeholder-shown):invalid,
+#cardnumber.custom,
+#monthyear.custom {
+  /* background-image: url("../../img/invalid.png"); */
   background-repeat: no-repeat;
   background-position: 95% 19px;
   background-size: 3.5%;
-  border-color: #f48d69;
+  border-color: #f47e69;
   animation: shake 0.125s 2 backwards;
-}
-
-input:valid {
-  border-color: green;
 }
 
 @keyframes shake {
