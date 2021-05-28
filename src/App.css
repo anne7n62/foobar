@@ -254,7 +254,9 @@ input {
   transition: 0.3s max-height;
 }
 
-input:not(:focus, :placeholder-shown):invalid ~ .error-message {
+input:not(:focus, :placeholder-shown):invalid ~ .error-message,
+#cardnumber.custom,
+#monthyear.custom {
   max-height: 2rem;
 }
 

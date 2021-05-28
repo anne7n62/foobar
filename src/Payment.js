@@ -62,7 +62,14 @@ class PaymentForm extends React.Component {
     number: "",
     cardnumberValid: true,
     dateValid: true,
+    // visibility: 'none',
   };
+
+  // changeMessageVisibility = () => {
+  //   this.setState({
+  //     visibility: 'visible'
+  //   })
+  // }
 
   _renderCard = () => () => {
     const [cardnumber] = useState("");
@@ -85,13 +92,14 @@ class PaymentForm extends React.Component {
   handleInputBlurCC = (e) => {
     if (e.target.value.length != 19) {
       this.setState({ cardnumberValid: false });
+      // this.errorCC.style={{display: visible }}
     } else {
       this.setState({ cardnumberValid: true });
     }
   };
 
   handleInputBlurDate = (e) => {
-    if (e.target.value.length != 4) {
+    if (e.target.value.length != 5) {
       this.setState({ dateValid: false });
     } else {
       this.setState({ dateValid: true });
@@ -128,7 +136,6 @@ class PaymentForm extends React.Component {
             type="text"
             required
             minLength="19"
-            //maxLength="19"
             mask="9999 9999 9999 9999"
             value={this.number}
             maskChar=""
@@ -136,32 +143,36 @@ class PaymentForm extends React.Component {
             onBlur={this.handleInputBlurCC}
             onChange={this.handleInputChange}
             onFocus={this.handleInputFocus}
-          />
-          <p class="error-message">Card no. needs to be 16 digits</p>
+          ></InputMask>
+          <p class="error-message">Card no. is 16 digits</p>
         </div>
 
         <div className="form-control">
           <label htmlFor="monthyear">Expiration date</label>
           <InputMask
+            name="monthyear"
             id="monthyear"
             mask="99/99"
+            minLength="5"
+            type="text"
             placeholder="Enter month/year, ex: 12/05"
             className={`ant-input ${this.state.dateValid ? "" : "custom"}`}
             maskChar=""
-            name="expiry"
-            className="ant-input"
             required
-            value={this.monthYear}
+            value={this.monthyear}
             onBlur={this.handleInputBlurDate}
             onChange={this.handleInputChange}
             onFocus={this.handleInputFocus}
           ></InputMask>
-          <p class="error-message">Please enter mm/yy</p>
+          <p class="error-message" id="Dateerror">
+            Please enter mm/yy
+          </p>
         </div>
+
         <div className="form-control">
           <label htmlFor="monthyear">CVC</label>
           <Input placeholder="Enter CVC, ex: 232" minLength="3" maxLength="3" maskChar="" name="cvc" className="ant-input" required value={this.cvc} onChange={this.handleInputChange} onFocus={this.handleInputFocus}></Input>
-          <p class="error-message">CVC is the 3 numbers on the back of your card</p>
+          <p class="error-message">The 3 numbers on the back of your card</p>
         </div>
       </div>
     );
