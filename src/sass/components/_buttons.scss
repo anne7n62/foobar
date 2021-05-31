@@ -1,0 +1,31 @@
+@use "../abstracts/variables";
+
+//Submit button
+
+.SubmitButton {
+  width: 100%;
+  padding: 15px 18px;
+  border: none;
+  cursor: pointer;
+  background-color: variables.$blue;
+  color: variables.$white;
+}
+
+//Filter buttons
+.filternav button {
+  background-color: variables.$blue;
+  padding: 5px 18px;
+  color: variables.$white;
+  border: none;
+}
+
+//Counter buttons
+.counter button {
+  width: 40px !important;
+  background-color: variables.$blue;
+  color: variables.$white;
+  border: none;
+  font-size: 17px;
+  height: 40px;
+  cursor: pointer;
+}

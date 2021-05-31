@@ -2,6 +2,7 @@
 @use 'abstracts';
 @use 'components';
 @use 'base';
+
 .App {
   padding: 25px;
 }
@@ -28,24 +29,24 @@ main {
   grid-gap: 2em;
 }
 
-.Product {
-  padding: 25px;
-  position: relative;
-  height: 600px;
-  border: 1px solid #0a0a0a;
-}
+// .Product {
+//   padding: 25px;
+//   position: relative;
+//   height: 600px;
+//   border: 1px solid #0a0a0a;
+// }
 
 .filternav {
   padding-left: 0;
 }
 
-.filternav button {
-  padding: 5px 18px;
-  border: none;
-  color: #fff;
-  background-color: #0a0a0a;
-  cursor: pointer;
-}
+// .filternav button {
+//   padding: 5px 18px;
+//   border: none;
+//   color: #fff;
+//   background-color: #0a0a0a;
+//   cursor: pointer;
+// }
 
 .product_img img {
   width: 100%;
@@ -71,12 +72,12 @@ main {
   font-size: 18px;
 }
 
-.Basket {
-  background-color: #fff;
-  border: 1px solid #0a0a0a;
-  padding: 25px;
-  position: relative;
-}
+// .Basket {
+//   background-color: #fff;
+//   border: 1px solid #0a0a0a;
+//   padding: 25px;
+//   position: relative;
+// }
 
 .Basket ul {
   margin-left: -35px;
@@ -107,15 +108,15 @@ main {
   width: 60px;
 }
 
-.counter button {
-  width: 40px !important;
-  background-color: #0a0a0a;
-  color: #fff;
-  border: none;
-  font-size: 17px;
-  height: 40px;
-  cursor: pointer;
-}
+// .counter button {
+//   width: 40px !important;
+//   background-color: #0a0a0a;
+//   color: #fff;
+//   border: none;
+//   font-size: 17px;
+//   height: 40px;
+//   cursor: pointer;
+// }
 
 .counter input {
   border: none;
@@ -137,14 +138,14 @@ main {
   bottom: 0;
 }
 
-.SubmitButton {
-  width: 100%;
-  padding: 15px 18px;
-  border: none;
-  cursor: pointer;
-  background-color: #0a0a0a;
-  color: #fff;
-}
+// .SubmitButton {
+//   width: 100%;
+//   padding: 15px 18px;
+//   border: none;
+//   cursor: pointer;
+//   background-color: #0a0a0a;
+//   color: #fff;
+// }
 
 /* .App-logo {
   height: 40vmin;
@@ -193,7 +194,7 @@ main {
 
 .Payment {
   display: grid;
-  grid-template-columns: 1fr 2fr;
+  grid-template-columns: 2fr 1fr;
   grid-gap: 2em;
   max-width: 1500px;
   margin: 0 auto;

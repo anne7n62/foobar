@@ -1,0 +1,36 @@
+@use "../abstracts/variables";
+
+body {
+  background-color: variables.$purple;
+}
+
+// PAYMENT SITE
+
+h1 {
+  color: variables.$white;
+}
+
+h3 {
+  color: variables.$white;
+}
+
+.BasketDetails {
+  background-color: variables.$transparent;
+  color: variables.$white;
+  border-radius: variables.$border;
+  grid-area: basket;
+}
+
+.PaymentDetails {
+  background-color: variables.$transparent;
+  color: variables.$white;
+  border-radius: variables.$border;
+  grid-area: paymentform;
+}
+
+.Payment {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  grid-template-areas: "paymentform basket";
+  grid-gap: 2em;
+}

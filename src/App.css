@@ -133,14 +133,14 @@ main {
   bottom: 0;
 }
 
-.SubmitButton {
+/* .SubmitButton {
   width: 100%;
   padding: 15px 18px;
   border: none;
   cursor: pointer;
   background-color: #0a0a0a;
   color: #fff;
-}
+} */
 
 /* .App-logo {
   height: 40vmin;

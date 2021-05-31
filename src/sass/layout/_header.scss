@@ -1,3 +1,6 @@
 // Importing the variable stylesheet
-@use "sass/abstracts/variables";
+@use "../abstracts/variables";
 
+nav a {
+  color: variables.$white;
+}

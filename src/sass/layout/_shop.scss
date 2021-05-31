@@ -1,0 +1,39 @@
+@use "../abstracts/variables";
+
+p {
+  color: variables.$white;
+}
+
+span {
+  color: variables.$white;
+}
+.counter {
+  color: variables.$white;
+}
+
+.ProductPrice {
+  color: variables.$white;
+}
+
+.counterNumber {
+  color: variables.$white;
+}
+
+.Product {
+  background-color: variables.$transparent;
+  padding: 25px;
+  position: relative;
+  height: 600px;
+  border-radius: variables.$border;
+}
+
+.product_img img {
+  border-radius: 40px 40px 40px 40px;
+}
+
+.Basket {
+  background-color: variables.$transparent;
+  border-radius: variables.$border;
+  padding: 25px;
+  position: relative;
+}
