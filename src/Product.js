@@ -1,4 +1,10 @@
 function Product({ products, addToBasket, removeFromBasket, filteredBeers, basket, tap }) {
+  //popop
+  const [isOpen, setIsOpen] = useState(false);
+  const togglePopup = () => {
+    setIsOpen(!isOpen);
+  };
+
   //vi laver et objekt
   const infoObject = tap;
 
@@ -32,6 +38,9 @@ function Product({ products, addToBasket, removeFromBasket, filteredBeers, baske
         </button>
         <span className="counterNumber">{count}</span>
         <button onClick={() => addToBasket(infoObject)}>+</button>
+
+        <button onClick={togglePopup}>More info</button>
+        {isOpen && <Popup handleClose={togglePopup} price={infoObject.price} name={infoObject.name} appearance={infoObject.description.appearance} mouthfeel={infoObject.description.mouthfeel} alcohol={infoObject.alc} />}
       </div>
     </div>
   );
