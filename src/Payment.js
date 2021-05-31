@@ -12,7 +12,7 @@ import postData from "./Post";
 import PaymentBasket from "./PaymentBasket";
 
 function Payment(props) {
-  let filteredPostOrders = props.basket.map((order) => {
+  let filteredPostOrders = props.basket.map(order => {
     return { name: order.product.name, amount: Number(order.amount) };
   });
 
@@ -20,37 +20,53 @@ function Payment(props) {
 
   console.log(filteredPostOrders);
 
+  const totalArr = props.basket.map((beer) => {
+
+    const priceObject = beer.amount * beer.product.price;
+
+    return priceObject;
+  });
+
+  const totalAmount = totalArr.reduce(
+    (previousScore, currentScore, index) => previousScore + currentScore,
+    0);
+
+  function orderSubmit(fullData) {
+    postData(
+      fullData,
+      'https://dreaming-of-foobar.herokuapp.com/order',
+      data => {
+        return data.message === "added" ? (
+          <div>
+            {props.setOrderId(data.id)}
+            {console.log(data.id)}
+          </div>
+        ) : null;
+      }
+    );
+  }
+
   return (
     <div className="Payment">
       <div className="BasketDetails">
         <h1>Basket details</h1>
         <PaymentBasket {...props} />
         <p>Total:</p>
-        <span className="TotalPrice">500 DKK</span>
+        <span className="TotalPrice">{totalAmount} DKK</span>
       </div>
       <div className="PaymentDetails">
         <h1>Payment Details</h1>
-        <form
-          onSubmit={(e) => {
-            e.preventDefault();
-            orderSubmit(filteredPostOrders);
-            location.push("/thanks");
-          }}
-        >
+        <form onSubmit={e => {
+          e.preventDefault();
+          orderSubmit(filteredPostOrders);
+          location.push("/thanks");
+        }}>
           <PaymentForm />
-          <button className="SubmitButton" type="submit">
-            Submit
-          </button>
+          <button className="SubmitButton" type="submit">Submit</button>
         </form>
       </div>
     </div>
   );
-}
-
-function orderSubmit(fullData) {
-  postData(fullData, "https://dreaming-of-foobar.herokuapp.com/order", (data) => {
-    return data.message === "Order went through" ? <div></div> : <div> error </div>;
-  });
 }
 
 class PaymentForm extends React.Component {
@@ -62,6 +78,8 @@ class PaymentForm extends React.Component {
     number: "",
     cardnumberValid: true,
     dateValid: true,
+    cvcValid: true,
+    nameValid: true
     // visibility: 'none',
   };
 
@@ -89,12 +107,31 @@ class PaymentForm extends React.Component {
     return <div>{monthYear}</div>;
   };
 
+  handleInputBlurName = (e) => {
+    if (e.target.value.length < 2) {
+      this.setState({ nameValid: false });
+      // this.errorCC.style={{display: visible }}
+    } else {
+      this.setState({ nameValid: true });
+    }
+  };
+
+
   handleInputBlurCC = (e) => {
     if (e.target.value.length !== 19) {
       this.setState({ cardnumberValid: false });
       // this.errorCC.style={{display: visible }}
     } else {
       this.setState({ cardnumberValid: true });
+    }
+  };
+
+  handleInputBlurCvc = (e) => {
+    if (e.target.value.length !== 3) {
+      this.setState({ cvcValid: false });
+      // this.errorCC.style={{display: visible }}
+    } else {
+      this.setState({ cvcValid: true });
     }
   };
 
@@ -122,8 +159,8 @@ class PaymentForm extends React.Component {
         <Cards cvc={this.state.cvc} expiry={this.state.expiry} focused={this.state.focus} name={this.state.name} number={this.state.number} />
         <div className="form-control">
           <label htmlFor="name">Name</label>
-          <Input name="name" type="text" placeholder="Enter your full name" required minLength="2" value={this.name} onChange={this.handleInputChange} onFocus={this.handleInputFocus} />
-          <p class="error-message">Please enter your full name</p>
+          <Input name="name" type="text" placeholder="Enter your full name" required minLength="2" value={this.name} onChange={this.handleInputChange} onBlur={this.handleInputBlurName} onFocus={this.handleInputFocus} />
+          <p className={`${this.state.nameValid ? "hidden" : "error-message"}`}>Please enter your full name</p>
         </div>
 
         <div className="form-control">
@@ -144,18 +181,18 @@ class PaymentForm extends React.Component {
             onChange={this.handleInputChange}
             onFocus={this.handleInputFocus}
           ></InputMask>
-          <p class="error-message">Card no. is 16 digits</p>
+          <p className={`${this.state.cardnumberValid ? "hidden" : "error-message"}`}>Please enter a valid CC number</p>
         </div>
 
         <div className="form-control">
           <label htmlFor="monthyear">Expiration date</label>
           <InputMask
-            name="monthyear"
+            name="expiry"
             id="monthyear"
             mask="99/99"
             minLength="5"
             type="text"
-            placeholder="Enter month/year, ex: 12/05"
+            placeholder="Enter expiration date"
             className={`ant-input ${this.state.dateValid ? "" : "custom"}`}
             maskChar=""
             required
@@ -164,15 +201,15 @@ class PaymentForm extends React.Component {
             onChange={this.handleInputChange}
             onFocus={this.handleInputFocus}
           ></InputMask>
-          <p class="error-message" id="Dateerror">
+          <p className={`${this.state.dateValid ? "hidden" : "error-message"}`} id="Dateerror">
             Please enter mm/yy
           </p>
         </div>
 
         <div className="form-control">
           <label htmlFor="monthyear">CVC</label>
-          <Input placeholder="Enter CVC, ex: 232" minLength="3" maxLength="3" maskChar="" name="cvc" className="ant-input" required value={this.cvc} onChange={this.handleInputChange} onFocus={this.handleInputFocus}></Input>
-          <p class="error-message">The 3 numbers on the back of your card</p>
+          <Input placeholder="Enter CVC" minLength="3" maxLength="3" maskChar="" name="cvc" className={`ant-input ${this.state.cvcValid ? "" : "custom"}`} required value={this.cvc} onChange={this.handleInputChange} onFocus={this.handleInputFocus}></Input>
+          <p className={`${this.state.cvcValid ? "hidden" : "error-message"}`}>The 3 numbers on the back of your card</p>
         </div>
       </div>
     );

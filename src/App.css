@@ -252,6 +252,12 @@ input {
   max-height: 0;
   overflow: hidden;
   transition: 0.3s max-height;
+  display: block;
+  max-height: 2rem;
+}
+
+.hidden {
+  display: none;
 }
 
 input:not(:focus, :placeholder-shown):invalid ~ .error-message,
@@ -261,15 +267,19 @@ input:not(:focus, :placeholder-shown):invalid ~ .error-message,
 }
 
 input:not(:focus, :placeholder-shown):valid {
-  border-color: green;
+  background-image: url("./valid.png");
+  background-repeat: no-repeat;
+  background-position: 95% 11px;
+  background-size: 3.5%;
+  border-color: rgb(94, 194, 94);
 }
 
 input:not(:focus, :placeholder-shown):invalid,
 #cardnumber.custom,
 #monthyear.custom {
-  /* background-image: url("../../img/invalid.png"); */
+  background-image: url("./invalid.png");
   background-repeat: no-repeat;
-  background-position: 95% 19px;
+  background-position: 95% 11px;
   background-size: 3.5%;
   border-color: #f47e69;
   animation: shake 0.125s 2 backwards;
