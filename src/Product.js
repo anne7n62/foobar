@@ -1,3 +1,6 @@
+import React, { useState } from "react";
+import Popup from "./Popup.js";
+
 function Product({ products, addToBasket, removeFromBasket, filteredBeers, basket, tap }) {
   //popop
   const [isOpen, setIsOpen] = useState(false);
