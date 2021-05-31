@@ -6,7 +6,7 @@ import Basket from "./Basket.js";
 import Payment from "./Payment.js";
 import ThankYou from "./ThankYou.js";
 
-import "./App.css";
+import "./sass/main.scss";
 import prices from "./prices.json";
 
 function App() {

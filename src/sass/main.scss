@@ -1,0 +1,341 @@
+@use 'layout';
+@use 'abstracts';
+@use 'components';
+@use 'base';
+.App {
+  padding: 25px;
+}
+
+nav {
+  height: 65px;
+}
+
+nav a {
+  margin-right: 25px;
+}
+
+main {
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+  grid-gap: 2em;
+  max-width: 1500px;
+  margin: 0 auto;
+}
+
+.ProductList {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 2em;
+}
+
+.Product {
+  padding: 25px;
+  position: relative;
+  height: 600px;
+  border: 1px solid #0a0a0a;
+}
+
+.filternav {
+  padding-left: 0;
+}
+
+.filternav button {
+  padding: 5px 18px;
+  border: none;
+  color: #fff;
+  background-color: #0a0a0a;
+  cursor: pointer;
+}
+
+.product_img img {
+  width: 100%;
+}
+
+.Product .counter {
+  position: absolute;
+  left: 30px;
+  bottom: 35px;
+}
+
+.counterNumber {
+  position: relative;
+  font-size: 18px;
+  top: 5px;
+  left: 15px;
+}
+
+.ProductPrice {
+  position: absolute;
+  right: 40px;
+  bottom: 40px;
+  font-size: 18px;
+}
+
+.Basket {
+  background-color: #fff;
+  border: 1px solid #0a0a0a;
+  padding: 25px;
+  position: relative;
+}
+
+.Basket ul {
+  margin-left: -35px;
+  list-style: none;
+}
+
+.BasketItem {
+  position: relative;
+  margin-bottom: 25px;
+}
+
+.BasketItem img {
+  display: block;
+}
+
+.BasketItemImg {
+  display: inline-block;
+  margin-right: 20px;
+}
+
+.BasketItemHeading {
+  position: absolute;
+  left: 85px;
+  top: -5px;
+}
+
+.BasketItemImg img {
+  width: 60px;
+}
+
+.counter button {
+  width: 40px !important;
+  background-color: #0a0a0a;
+  color: #fff;
+  border: none;
+  font-size: 17px;
+  height: 40px;
+  cursor: pointer;
+}
+
+.counter input {
+  border: none;
+  height: 40px;
+  width: 40px;
+  text-align: center !important;
+  background-color: transparent;
+  font-size: 17px;
+}
+
+.BasketTotal {
+  margin-top: 50px;
+  position: relative;
+}
+
+.Basket .TotalPrice {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+}
+
+.SubmitButton {
+  width: 100%;
+  padding: 15px 18px;
+  border: none;
+  cursor: pointer;
+  background-color: #0a0a0a;
+  color: #fff;
+}
+
+/* .App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+} */
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.counter {
+  display: grid;
+  grid-template: auto / 3em 3em 3em;
+}
+
+.counter input[type="text"] {
+  text-align: right;
+}
+
+/* 
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+} */
+
+.Payment {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  grid-gap: 2em;
+  max-width: 1500px;
+  margin: 0 auto;
+}
+
+.PaymentDetails {
+  border: 1px solid #0a0a0a;
+  padding: 25px;
+}
+
+.BasketDetails {
+  border: 1px solid #0a0a0a;
+  padding: 25px;
+}
+
+.BasketDetails ul {
+  margin-left: -35px;
+  list-style: none;
+}
+
+.ThankYou {
+  text-align: center;
+  max-width: 1000px;
+  margin: 0 auto;
+  border: 1px solid #0a0a0a;
+  padding: 25px;
+}
+
+label,
+input {
+  display: block;
+  text-align: left;
+  margin-bottom: 5px;
+}
+
+.form-control {
+  margin-bottom: 10px;
+}
+
+#PaymentForm {
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+  padding: 30px;
+  margin: auto;
+}
+
+.filternav {
+  grid-column: 1/-1;
+}
+
+.filternav button {
+  margin-right: 25px;
+}
+
+/******FORM VALIDATION*****/
+
+.error-message {
+  color: #f47e69;
+  max-height: 0;
+  overflow: hidden;
+  transition: 0.3s max-height;
+  display: block;
+  max-height: 2rem;
+}
+
+.hidden {
+  display: none;
+}
+
+input:not(:focus, :placeholder-shown):invalid ~ .error-message,
+#cardnumber.custom,
+#monthyear.custom {
+  max-height: 2rem;
+}
+
+input:not(:focus, :placeholder-shown):valid {
+  background-image: url("../valid.png");
+  background-repeat: no-repeat;
+  background-position: 95% 11px;
+  background-size: 3.5%;
+  border-color: rgb(94, 194, 94);
+}
+
+input:not(:focus, :placeholder-shown):invalid,
+#cardnumber.custom,
+#monthyear.custom {
+  background-image: url("../invalid.png");
+  background-repeat: no-repeat;
+  background-position: 95% 11px;
+  background-size: 3.5%;
+  border-color: #f47e69;
+  animation: shake 0.125s 2 backwards;
+}
+
+@keyframes shake {
+  25% {
+    transform: translateX(-6px);
+  }
+  75% {
+    transform: translateX(6px);
+  }
+}
+
+/* Popup style */
+.popup-box {
+  z-index: 999;
+  position: fixed;
+  background: #000000c7;
+  width: 100%;
+  height: 100vh;
+  top: 0;
+  left: 0;
+}
+
+.box {
+  position: relative;
+
+  width: 70%;
+  margin: 0 auto;
+  height: auto;
+  max-height: 70vh;
+  margin-top: calc(100vh - 85vh - 20px);
+  background: #fff;
+  border-radius: 4px;
+  padding: 20px;
+  border: 1px solid #999;
+  overflow: auto;
+}
+
+.close-icon {
+  content: "x";
+  cursor: pointer;
+  position: fixed;
+  right: calc(15% - 30px);
+  top: calc(100vh - 85vh - 33px);
+  background: #ededed;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  line-height: 20px;
+  text-align: center;
+  border: 1px solid #999;
+  font-size: 20px;
+}
