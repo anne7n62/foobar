@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 
 import BasketMessage from "./BasketMessage";
+import BasketItem from "./BasketItem";
 
 function MyBasket({ basket, ...rest }) {
   const totalArr = basket.map((beer) => {
@@ -27,27 +28,6 @@ function MyBasket({ basket, ...rest }) {
         <button className="SubmitButton">Go to payment</button>
       </Link>
     </>
-  );
-}
-
-function BasketItem(props) {
-  const newBeerPrice = props.amount * props.product.price;
-
-  return (
-    <li>
-      <div className="BasketItem">
-        <div className={"BasketItemImg"}>
-          <img src={`./images/${props.product.label}`} alt="Product" />
-        </div>
-        <h3 className="BasketItemHeading">{props.product.name}</h3>
-        <div className="counter">
-          <button onClick={() => props.removeFromBasket(props.product)}>-</button>
-          <input type="text" disabled value={props.amount} />
-          <button onClick={() => props.addToBasket(props.product)}>+</button>
-        </div>
-        <span className="BasketItemPrice">{newBeerPrice} DKK</span>
-      </div>
-    </li>
   );
 }
 
