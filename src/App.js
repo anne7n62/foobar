@@ -131,6 +131,10 @@ function App() {
           <Link to="/thanks">Thanks</Link>
         </nav> */}
         <header>
+          <div className="help_container">
+            <button className="help_btn"></button>
+            <span>Need help?</span>
+          </div>
           <Link to="/"><img src={`./images/foobar_logo.svg`} className="logo" alt="Logo" /></Link>
           <div className="dashboard_navigation">
             <button className="notification_btn"></button>

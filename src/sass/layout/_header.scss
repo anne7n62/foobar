@@ -1,8 +1,7 @@
 @import '../abstracts/variables';
 
 header {
-    padding: 0px;
-    padding-bottom: 25px;
+  padding: 40px 40px 25px;
     margin-bottom: 50px;
   }
 
@@ -11,12 +10,56 @@ header {
     display: inline-block;
     position: absolute;
     top: 35px;
+    left: 46.2vw;
+}
+
+.help_container {
+  position: absolute;
+  top: 37px;
+  left: 22px;
+
+  button {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 10px;
+    margin-top: -10px;
+    margin-left: 10px;
+    border: none;
+    background-color: rgba(255,255,255, 0.25);
+    backdrop-filter: blur(20px);
+    color: #fff;
+  }
+
+  span {
+    color: $white;
+    letter-spacing: 0.5px;
+    font-size: 14px;
+    font-family: 'Quicksand', sans-serif;
+    opacity: 0.9;
+    margin-left: 5px;
+    position: absolute;
+    top: 5px;
+    width: 100px;
+  }
+
+  .help_btn {
+    background-image: url("../../img/info.svg");
+    background-repeat: no-repeat;
+    background-size: 17%;
+    background-position: 50% 65%;
+    cursor: pointer;
+  }
+  
+  .help_btn:hover {
+    background-color: rgba(255,255,255, 0.3);
+  }
 }
 
 .dashboard_navigation {
   position: absolute;
-  top: 40px;
-  right: 40px;
+  top: 37px;
+  right: 22px;
 
   button {
     width: 40px;

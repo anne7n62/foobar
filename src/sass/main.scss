@@ -1,14 +1,14 @@
 @import 'layout/header','layout/payment','layout/shop';
 @import 'base/typography';
-@import 'abstracts/variables';
+@import 'abstracts/variables','abstracts/mixins';
 @import 'components/buttons';
 
 body {
-  background: radial-gradient(circle, #3E3D6E 82%, #25234A 100%);
+  background: radial-gradient(circle, #3e3d6e 82%, #25234a 100%);
   overflow-x: hidden;
-  overflow-y: scroll;
   scrollbar-width: none;
   -ms-overflow-style: none;
+  overflow-y: scroll;
 }
 
 .App {
@@ -24,17 +24,33 @@ nav a {
 }
 
 main {
-  display: grid;
-  grid-template-columns: 3fr 1fr;
-  grid-gap: 4em;
-  max-width: 1500px;
-  margin: 0 auto;
+display: block;
+
+  // 1400px window width and more
+    @include rwd(1400) {
+      display: grid;
+      grid-template-columns: 3fr 1fr;
+      grid-gap: 4em;
+      max-width: 1500px;
+      margin: 0 auto;
+    }
 }
 
 .ProductList {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-gap: 4em;
+  display: block;
+
+    // 576px window width and more
+    @include sm {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-gap: 4em;
+    }
+    // 992px window width and more
+    @include lg {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      grid-gap: 4em;
+    }
 }
 
 // .Product {
@@ -79,7 +95,7 @@ main {
   left: 30px;
   bottom: 40px;
   font-size: 18px;
-  color: $purple;
+  color: $black;
   letter-spacing: 1px;
   font-family: 'Jost', sans-serif;
 }
@@ -316,10 +332,29 @@ input {
 
 .filternav {
   grid-column: 1/-1;
+  margin-bottom: 0px;
+  text-align: center;
+
+  // 576px window width and more
+    @include sm {
+
+    }
+// 992px window width and more
+    @include lg {
+      margin-bottom: 0px;
+    }
+
 }
+
 
 .filternav button {
   margin-right: 25px;
+  margin-bottom: 25px;
+
+  // 992px window width and more
+  @include lg {
+    margin-bottom: 0px;
+  }
 }
 
 /******FORM VALIDATION*****/
@@ -375,7 +410,7 @@ input:not(:focus, :placeholder-shown):invalid,
 .popup-box {
   z-index: 999;
   position: fixed;
-  background: #000000c7;
+  background: $purple_transparent;
   width: 100%;
   height: 100vh;
   top: 0;
@@ -384,8 +419,7 @@ input:not(:focus, :placeholder-shown):invalid,
 
 .box {
   position: relative;
-
-  width: 70%;
+  width: 50%;
   margin: 0 auto;
   height: auto;
   max-height: 70vh;
