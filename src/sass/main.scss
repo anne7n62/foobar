@@ -4,7 +4,7 @@
 @import 'components/buttons';
 
 body {
-  background: radial-gradient(circle, #3e3d6e 82%, #25234a 100%);
+  background: radial-gradient(circle, #3e3d6e 62%, #25234a 100%);
   overflow-x: hidden;
   scrollbar-width: none;
   -ms-overflow-style: none;
@@ -193,6 +193,7 @@ display: block;
   height: 40px;
   width: 40px;
   text-align: center !important;
+  color: #fff;
   background-color: transparent;
   font-size: 17px;
 }
@@ -279,19 +280,40 @@ display: block;
 }
 
 .PaymentDetails {
-  padding: 25px;
+  padding: 45px;
+
+  h1 {
+    font-size: 18px;
+    color: #ffffff;
+    font-weight: 500;
+    letter-spacing: 2px;
+    font-family: 'Jost', sans-serif;
+    margin-bottom: 35px;
+  }
+
+  .SubmitButton {
+    width: 100px;
+    background: transparent !important;
+    position: absolute;
+    border-radius: 0 0 40px 0;
+    left: 75vw;
+    bottom: 215px;
+    z-index: 100;
+}
+
 }
 
 .BasketDetails {
   padding: 45px;
   height: auto;
   background-color: $transparent;
+  position: relative;
 
   h1 {
   font-size: 18px;
   color: #ffffff;
   font-weight: 500;
-  letter-spacing: 3px;
+  letter-spacing: 2px;
   font-family: 'Jost', sans-serif;
   margin-bottom: 35px;
   }
@@ -323,10 +345,9 @@ input {
 }
 
 #PaymentForm {
-  display: flex;
-  flex-direction: column;
-  width: 300px;
-  padding: 30px;
+display: grid;
+grid-template-columns: 1fr 1.3fr;
+  padding: 30px 0;
   margin: auto;
 }
 
@@ -360,28 +381,31 @@ input {
 /******FORM VALIDATION*****/
 
 .error-message {
-  color: #f47e69;
+  color: #ff9f8f;
   max-height: 0;
   overflow: hidden;
   transition: 0.3s max-height;
   display: block;
   max-height: 2rem;
+  margin-top: -10px;
+  margin-bottom: 25px;
+  margin-left: 5px;
 }
 
 .hidden {
   display: none;
 }
 
-input:not(:focus, :placeholder-shown):invalid ~ .error-message,
-#cardnumber.custom,
-#monthyear.custom {
-  max-height: 2rem;
-}
+// input:not(:focus, :placeholder-shown):invalid ~ .error-message,
+// #cardnumber.custom,
+// #monthyear.custom {
+//   max-height: 2rem;
+// }
 
 input:not(:focus, :placeholder-shown):valid {
   background-image: url("../valid.png");
   background-repeat: no-repeat;
-  background-position: 95% 11px;
+  background-position: 95% 19px;
   background-size: 3.5%;
   border-color: rgb(94, 194, 94);
 }
@@ -391,7 +415,7 @@ input:not(:focus, :placeholder-shown):invalid,
 #monthyear.custom {
   background-image: url("../invalid.png");
   background-repeat: no-repeat;
-  background-position: 95% 11px;
+  background-position: 95% 19px;
   background-size: 3.5%;
   border-color: #f47e69;
   animation: shake 0.125s 2 backwards;
@@ -421,14 +445,15 @@ input:not(:focus, :placeholder-shown):invalid,
   position: relative;
   width: 50%;
   margin: 0 auto;
-  height: auto;
   max-height: 70vh;
   margin-top: calc(100vh - 85vh - 20px);
   background: #fff;
   border-radius: 4px;
-  padding: 20px;
+  padding: 45px;
   border: 1px solid #999;
   overflow: auto;
+  display: grid;
+  grid-template-columns: 1.3fr 1fr;
 }
 
 .close-icon {

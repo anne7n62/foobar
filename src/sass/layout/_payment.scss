@@ -9,21 +9,19 @@ h3 {
 .BasketDetails {
   color: $white;
   border-radius: $border;
-  grid-area: basket;
+
+  .total_container {
+    float: bottom;
+  }
 }
 
 .PaymentDetails {
   background-color: $transparent;
   color: $white;
-  border-radius: $border;
-  grid-area: paymentform;
+  border-radius: 50px 50px 0 50px;
 }
 
 .Payment {
-  display: grid;
-  grid-template-columns: 2fr 1fr;
-  grid-template-areas: "paymentform basket";
-  grid-gap: 2em;
 
   .BasketItemHeading {
     left: 85px;
@@ -34,4 +32,64 @@ h3 {
   .BasketItemPrice {
     top: 17px !important;
 }
+}
+
+.rccs__card {
+  height: 234.5px !important;
+  width: 335px !important;
+  margin-top: 25px !important;
+}
+
+.rccs__card--unknown > div {
+  background: rgb(99,200,186);
+  background: linear-gradient(149deg, rgba(99,200,186,1) -20%, rgba(62,167,153,1) 100%) !important;  
+  box-shadow: none;
+}
+
+.rccs__name {
+letter-spacing: 0.5px;
+}
+
+input:is([type="text"], [type="number"], [type="email"]) {
+  color: #fff;
+  // border: 1px solid #cacefc;
+  border: none;
+  background: $transparent;
+      background-position-x: 0%;
+      background-position-y: 0%;
+      background-repeat: repeat;
+      background-image: none;
+      background-size: auto;
+  padding: 15px 10px;
+      padding-left: 10px;
+  padding-inline: 12px;
+  padding-left: 15px;
+  border-radius: 7px;
+  outline: 0;
+  resize: none;
+  transition: .1s background;
+  font-family: Jost,sans-serif;
+  letter-spacing: .5px;
+  margin-bottom: 25px;
+}
+
+.form-control {
+  position: relative;
+}
+
+.Payment label {
+  color: $white;
+  font-family: Jost,sans-serif;
+  text-transform: uppercase;
+  font-size: 12px;
+  letter-spacing: 1.3px;
+  margin-bottom: -55px;
+  margin-left: 12px;
+  padding: 2px 4px;
+  height: 20px;
+  width: auto !important;
+  background-color: transparent;
+  z-index: 100;
+  position: absolute;
+  top: -13px;
 }

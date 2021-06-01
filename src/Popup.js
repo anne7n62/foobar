@@ -3,11 +3,11 @@ import React from "react";
 const Popup = (props) => {
   return (
     <div className="popup-box">
-      <div className="box">
-        <span className="close-icon" onClick={props.handleClose}>
-          x
+      <span className="close-icon" onClick={props.handleClose}>
+        x
         </span>
-        <div className="img_column">
+      <div className="box">
+        <div className="text_column">
           <h1>{props.name}</h1>
           <p>Alcohol: {props.alcohol}%</p>
           <p>Appearance: {props.appearance}</p>
@@ -16,7 +16,7 @@ const Popup = (props) => {
 
         </div>
         <div className="img_column">
-
+          <img src={`../images/${props.label}`} alt="Product" />
         </div>
       </div>
     </div>

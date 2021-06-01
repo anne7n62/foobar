@@ -36,13 +36,8 @@ function Payment(props) {
 
   return (
     <div className="Payment">
-      <div className="BasketDetails">
-        <h1>Basket details</h1>
-        <PaymentBasket {...props} />
-        <div className="total_container">
-          <p className="total">Total:</p>
-          <span className="total_amount">{totalAmount} DKK</span>
-        </div>
+      <div className="bg_text">
+        <h1>Foobar</h1>
       </div>
       <div className="PaymentDetails">
         <h1>Payment Details</h1>
@@ -56,6 +51,15 @@ function Payment(props) {
           <PaymentForm />
           <button className="SubmitButton" type="submit">Submit</button>
         </form>
+      </div>
+      <div className="BasketDetails">
+        <h1>Basket details</h1>
+        <PaymentBasket {...props} />
+        <div className="total_container">
+          <p className="total">Total:</p>
+          <span className="total_amount">{totalAmount} DKK</span>
+        </div>
+        <button className="SubmitButton" type="submit">&nbsp;</button>
       </div>
     </div>
   );
