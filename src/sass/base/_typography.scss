@@ -1,0 +1,31 @@
+p {
+    font-family: 'Quicksand', sans-serif;
+}
+
+h1 {
+    font-family: 'Jost', sans-serif;
+}
+
+h2 {
+    font-family: 'Jost', sans-serif;
+}
+
+h3 {
+    font-family: 'Jost', sans-serif;
+}
+
+.bg_text {
+    position: absolute;
+    top: 20vh;
+    left: -2vw;
+
+    h1 {
+        font-size: 330px;
+        letter-spacing: 130px;
+        font-weight: 600;
+        font-family: 'Jost', sans-serif;
+        text-transform: uppercase;
+        color: rgba(0,0,0,0.1);
+    }
+
+}

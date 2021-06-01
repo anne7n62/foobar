@@ -141,6 +141,9 @@ function App() {
             exact
             render={() => (
               <main>
+                <div className="bg_text">
+                  <h1>Foobar</h1>
+                </div>
                 <ProductList
                   className="ProductList"
                   btnCategories={btnCategories}

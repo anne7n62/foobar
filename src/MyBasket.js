@@ -19,8 +19,10 @@ function MyBasket({ basket, ...rest }) {
         ))}
       </ul>
       {basket.length < 1 && <BasketMessage />}
-      <p>Total:</p>
-      <span className="">{totalAmount} DKK</span>
+      <div className="total_container">
+        <p className="total">Total:</p>
+        <span className="total_amount">{totalAmount} DKK</span>
+      </div>
       <Link to="/payment">
         <button className="SubmitButton">Go to payment</button>
       </Link>
@@ -43,7 +45,7 @@ function BasketItem(props) {
           <input type="text" disabled value={props.amount} />
           <button onClick={() => props.addToBasket(props.product)}>+</button>
         </div>
-        <span className="BasketItemPrice">{newBeerPrice}</span>
+        <span className="BasketItemPrice">{newBeerPrice} DKK</span>
       </div>
     </li>
   );

@@ -62,7 +62,7 @@ function Payment(props) {
           location.push("/thanks");
         }}>
           <PaymentForm />
-          <button className="SubmitButton" type="submit">Submit</button>
+          <button className="SubmitButtonPayment" type="submit">Submit</button>
         </form>
       </div>
     </div>

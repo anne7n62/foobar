@@ -5,6 +5,7 @@
 
 body {
   background: radial-gradient(circle, #3E3D6E 82%, #25234A 100%);
+  overflow-x: hidden;
 }
 
 .App {
@@ -84,13 +85,46 @@ main {
 // }
 
 .Basket ul {
-  margin-left: -35px;
+  margin-left: -40px;
   list-style: none;
+  margin-top: 35px;
 }
 
 .BasketItem {
   position: relative;
   margin-bottom: 25px;
+
+  .counter {
+    position: absolute;
+    top: 22px;
+    left: 80px;
+  }
+
+  .counter button {
+    background-color: transparent;
+    border: none;
+    color: $white;
+    cursor: pointer;
+    padding: 0;
+    font-size: 17px;
+    width: 25px;
+  }
+
+  .counter input {
+    font-size: 15px;
+    width: 25px;
+  }
+
+  .BasketItemPrice {
+    position: absolute;
+    top: 32px;
+    right: 0px;
+    font-size: 15px;
+    letter-spacing: 1px;
+    color: $white;
+    opacity: 0.9;
+    font-family: 'Jost',sans-serif;
+  }
 }
 
 .BasketItem img {
@@ -100,12 +134,21 @@ main {
 .BasketItemImg {
   display: inline-block;
   margin-right: 20px;
+
+  img {
+    border-radius: 50%;
+  }
 }
 
 .BasketItemHeading {
   position: absolute;
   left: 85px;
-  top: -5px;
+  top: 5px;
+  color: $white;
+  font-family: 'Quicksand', sans-serif;
+  font-weight: 600;
+  font-size: 14px;
+  letter-spacing: 1px;
 }
 
 .BasketItemImg img {
@@ -175,7 +218,7 @@ main {
 
 .counter {
   display: grid;
-  grid-template: auto / 3em 3em 3em;
+  grid-template-columns: 1fr 1fr 1fr;
 }
 
 .counter input[type="text"] {

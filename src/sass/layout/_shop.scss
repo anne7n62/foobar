@@ -28,9 +28,62 @@ width: 100%;
 border-radius: 50px 50px 50px 0px;
 }
 
+.basket_container {
+  text-align: center;
+
+
+  h1 {
+    margin-bottom: 30px;
+    margin-top: 10px;
+    font-size: 25px;
+    color: $white;
+    font-weight: 700;
+    letter-spacing: 4px;
+    font-family: 'Jost', sans-serif;
+  }
+}
+
 .Basket {
+  text-align: left;
   background-color: $transparent;
   border-radius: 50px 50px 50px 0;
-  padding: 25px;
+  padding: 45px;
   position: relative;
+  
+  p {
+    margin-top: 25px;
+    color: $white;
+    opacity: 0.8;
+  }
+
+  h2 {
+    font-size: 18px;
+    color: $white;
+    font-weight: 500;
+    letter-spacing: 3px;
+    font-family: 'Jost', sans-serif;
+
+  }
+
+.total_container {
+  position: relative;
+  bottom: -50px;
+
+  .total {
+    font-size: 16px;
+    opacity: 1;
+    font-weight: 600;
+  }
+
+  .total_amount {
+    position: absolute;
+    right: 0;
+    top: 0;
+    font-size: 16px;
+    color: $white;
+    font-weight: 600;
+    font-family: 'Jost', sans-serif;
+  }
+}
+
 }

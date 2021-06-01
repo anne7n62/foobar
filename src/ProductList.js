@@ -33,7 +33,7 @@ function FilterNav({ products, setCategory, taps, btnCategories }) {
         className='filters'
         onClick={updateCategory}
       >
-        All
+        All beers
           </button>
       {filterbtns}
     </div>

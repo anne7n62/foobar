@@ -4,11 +4,16 @@
 
 .SubmitButton {
   width: 100%;
-  padding: 15px 18px;
+  padding: 18px 18px;
   border: none;
   cursor: pointer;
-  background-color: $blue;
+  background: rgb(99,200,186);
+  background: linear-gradient(149deg, rgba(99,200,186,1) 0%, rgba(62,167,153,1) 100%);
   color: $white;
+  font-family: 'Jost', sans-serif;
+  font-weight: 500;
+  font-size: 15px;
+  letter-spacing: 1px;
 }
 
 //Filter buttons
@@ -20,13 +25,27 @@
 }
 
 //Counter buttons
-.counter button {
-  width: 40px !important;
-  background-color: $blue;
-  color: $white;
-  border: none;
-  font-size: 17px;
-  height: 40px;
-  cursor: pointer;
+.Product {
+  .counter button {
+    width: 40px !important;
+    background-color: $blue;
+    color: $white;
+    border: none;
+    font-size: 17px;
+    height: 40px;
+    cursor: pointer;
+  }  
 }
 
+.Basket {
+  position: relative;
+  padding-bottom: 130px;
+}
+
+.SubmitButton {
+  width: 100%;
+  position: absolute;
+  border-radius: 0 0 40px 0;
+  left: 0;
+  bottom: 0;
+}

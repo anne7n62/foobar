@@ -3,9 +3,13 @@ import MyBasket from "./MyBasket.js";
 
 function Basket(props) {
   return (
-    <div className="Basket">
-      {props.basket.length > 0 && <MyBasket {...props}></MyBasket>}
-      {props.basket.length === 0 && <BasketMessage></BasketMessage>}
+    <div className="basket_container">
+      <h1>Order</h1>
+      <div className="Basket">
+        <h2>Basket</h2>
+        {props.basket.length > 0 && <MyBasket {...props}></MyBasket>}
+        {props.basket.length === 0 && <BasketMessage></BasketMessage>}
+      </div>
     </div>
   );
 }
