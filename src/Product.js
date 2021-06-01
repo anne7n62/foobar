@@ -29,21 +29,22 @@ function Product({ products, addToBasket, removeFromBasket, filteredBeers, baske
       <div className={"product_img"}>
         <img src={`./images/${infoObject.label}`} alt="Product" />
       </div>
-
-      <h1>{infoObject.name}</h1>
-      <p>{infoObject.description.overallImpression}</p>
-      <span className="ProductPrice">{infoObject.price} DKK</span>
-      <div className="counter">
-        {/* <button onClick={decreaseAmount}>-</button>
+      <div class="product_details">
+        <h1>{infoObject.name}</h1>
+        <p>{infoObject.description.overallImpression}</p>
+        <span className="ProductPrice">{infoObject.price} DKK</span>
+        <div className="counter">
+          {/* <button onClick={decreaseAmount}>-</button>
         <input type="text" onChange={enterAmount} value={amount} /> */}
-        <button disabled={count === 0} onClick={() => removeFromBasket(infoObject)}>
-          -
+          <button disabled={count === 0} onClick={() => removeFromBasket(infoObject)}>
+            -
         </button>
-        <span className="counterNumber">{count}</span>
-        <button onClick={() => addToBasket(infoObject)}>+</button>
+          <span className="counterNumber">{count}</span>
+          <button onClick={() => addToBasket(infoObject)}>+</button>
 
-        <button onClick={togglePopup}>More info</button>
-        {isOpen && <Popup handleClose={togglePopup} price={infoObject.price} name={infoObject.name} appearance={infoObject.description.appearance} mouthfeel={infoObject.description.mouthfeel} alcohol={infoObject.alc} />}
+          <button onClick={togglePopup}>More info</button>
+          {isOpen && <Popup handleClose={togglePopup} price={infoObject.price} name={infoObject.name} appearance={infoObject.description.appearance} mouthfeel={infoObject.description.mouthfeel} alcohol={infoObject.alc} />}
+        </div>
       </div>
     </div>
   );

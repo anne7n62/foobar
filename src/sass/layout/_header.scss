@@ -1,6 +1,80 @@
-// Importing the variable stylesheet
-@use "../abstracts/variables";
+@import '../abstracts/variables';
 
-nav a {
-  color: variables.$white;
+header {
+    padding: 40px;
+    padding-bottom: 25px;
+  }
+
+.logo {
+    width: 100px;
+    display: inline-block;
+    margin-top: -45px;
 }
+
+.dashboard_navigation {
+  position: absolute;
+  top: 40px;
+  right: 40px;
+
+  button {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 10px;
+    margin-top: -10px;
+    margin-left: 10px;
+    border: none;
+    background-color: rgba(255,255,255, 0.25);
+    backdrop-filter: blur(20px);
+    color: #fff;
+  }
+}
+
+.notification_btn {
+  background-image: url("../../img/bell.svg");
+  background-repeat: no-repeat;
+  background-size: 40%;
+  background-position: center;
+  cursor: pointer;
+}
+
+.notification_btn:hover {
+  background-color: rgba(255,255,255, 0.3);
+}
+
+.mail_btn {
+  background-image: url("../../img/mail.svg");
+  background-repeat: no-repeat;
+  background-size: 43%;
+  background-position: center;
+  cursor: pointer;
+}
+
+.mail_btn:hover {
+  background-color: rgba(255,255,255, 0.3);
+}
+
+.settings_btn {
+  background-image: url("../../img/settings.svg");
+  background-repeat: no-repeat;
+  background-size: 43%;
+  background-position: center;
+  cursor: pointer;
+}
+
+.settings_btn:hover {
+  background-color: rgba(255,255,255, 0.3);
+}
+
+.info_btn {
+  background-image: url("../../img/info.svg");
+  background-repeat: no-repeat;
+  background-size: 17%;
+  background-position: 50% 65%;
+  cursor: pointer;
+}
+
+.info_btn:hover {
+  background-color: rgba(255,255,255, 0.3);
+}
+

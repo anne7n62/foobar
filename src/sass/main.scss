@@ -1,7 +1,11 @@
-@use 'layout';
-@use 'abstracts';
-@use 'components';
-@use 'base';
+@import 'layout/header','layout/payment','layout/shop';
+@import 'base/typography';
+@import 'abstracts/variables';
+@import 'components/buttons';
+
+body {
+  background: radial-gradient(circle, #3E3D6E 82%, #25234A 100%);
+}
 
 .App {
   padding: 25px;
@@ -18,7 +22,7 @@ nav a {
 main {
   display: grid;
   grid-template-columns: 3fr 1fr;
-  grid-gap: 2em;
+  grid-gap: 3em;
   max-width: 1500px;
   margin: 0 auto;
 }
@@ -26,7 +30,7 @@ main {
 .ProductList {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  grid-gap: 2em;
+  grid-gap: 4em;
 }
 
 // .Product {
@@ -340,3 +344,4 @@ input:not(:focus, :placeholder-shown):invalid,
   border: 1px solid #999;
   font-size: 20px;
 }
+

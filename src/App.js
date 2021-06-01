@@ -1,12 +1,11 @@
+import "./sass/main.scss";
 import { useState, useEffect } from "react";
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 import ProductList from "./ProductList.js";
 import Basket from "./Basket.js";
 import Payment from "./Payment.js";
 import ThankYou from "./ThankYou.js";
-
-import "./sass/main.scss";
 import prices from "./prices.json";
 
 function App() {
@@ -122,11 +121,20 @@ function App() {
   return (
     <Router>
       <div className="App">
-        <nav>
+        {/* <nav>
           <Link to="/">Shop</Link>
           <Link to="/payment">Payment</Link>
           <Link to="/thanks">Thanks</Link>
-        </nav>
+        </nav> */}
+        <header>
+          <img src={`./images/foobar_logo.svg`} className="logo" alt="Logo" />
+          <div className="dashboard_navigation">
+            <button className="notification_btn"></button>
+            <button className="mail_btn"></button>
+            <button className="settings_btn"></button>
+            <button className="info_btn"></button>
+          </div>
+        </header>
         <Switch>
           <Route
             path="/"

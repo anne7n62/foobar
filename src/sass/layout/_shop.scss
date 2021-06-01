@@ -1,39 +1,36 @@
-@use "../abstracts/variables";
+@import '../abstracts/variables';
 
-p {
-  color: variables.$white;
-}
-
-span {
-  color: variables.$white;
-}
 .counter {
-  color: variables.$white;
+  color: $white;
 }
 
 .ProductPrice {
-  color: variables.$white;
+  color: $white;
 }
 
 .counterNumber {
-  color: variables.$white;
+  color: $white;
 }
 
 .Product {
-  background-color: variables.$transparent;
-  padding: 25px;
+  background-color: $light;
   position: relative;
   height: 600px;
-  border-radius: variables.$border;
+  border-radius: $border;
+}
+
+.product_details {
+  padding: 25px;
 }
 
 .product_img img {
-  border-radius: 40px 40px 40px 40px;
+width: 100%;
+border-radius: 50px 50px 50px 0px;
 }
 
 .Basket {
-  background-color: variables.$transparent;
-  border-radius: variables.$border;
+  background-color: $transparent;
+  border-radius: 50px 50px 50px 0;
   padding: 25px;
   position: relative;
 }
