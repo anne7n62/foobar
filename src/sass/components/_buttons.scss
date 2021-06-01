@@ -18,23 +18,55 @@
 
 //Filter buttons
 .filternav button {
-  background-color: $blue;
-  padding: 5px 18px;
+  background-color: $transparent;
+  padding: 12px 28px;
+  font-family: 'Quicksand', sans-serif;
+  cursor: pointer;
+  font-weight: 500;
+  font-size: 13px;
+  letter-spacing: 0.59px;
   color: $white;
   border: none;
+  border-radius: 20px 20px 20px 0 ;
 }
+
+.filternav button:hover {
+  background-color: rgba(255,255,255, 0.2);
+}
+
+// .read_more_btn {
+//   background-color: transparent;
+//   border: none;
+//   padding: 0;
+//   font-family: 'Quicksand', sans-serif;
+//   cursor: pointer;
+// }
 
 //Counter buttons
 .Product {
+  .counter {
+    background-color: $purple;
+    border-radius: 30px;
+    padding: 2px 5px;
+  }
+
   .counter button {
-    width: 40px !important;
-    background-color: $blue;
+    width: 29px !important;
+    background-color: transparent;
     color: $white;
     border: none;
     font-size: 17px;
     height: 40px;
     cursor: pointer;
   }  
+
+  .counter span {
+    margin-left: -9px;
+    margin-top: 1px;
+    text-align: center;
+    width: 20px;
+    font-family: 'Jost', sans-serif;
+  }
 }
 
 .Basket {

@@ -26,25 +26,22 @@ function Product({ products, addToBasket, removeFromBasket, filteredBeers, baske
 
   return (
     <div className="Product">
-      <div className={"product_img"}>
+      <div className={"product_img"} onClick={togglePopup}>
         <img src={`./images/${infoObject.label}`} alt="Product" />
       </div>
-      <div class="product_details">
+      <div className="product_details">
         <h1>{infoObject.name}</h1>
-        <p>{infoObject.description.overallImpression}</p>
+        {/* <p>{infoObject.description.overallImpression}</p> */}
         <span className="ProductPrice">{infoObject.price} DKK</span>
         <div className="counter">
           {/* <button onClick={decreaseAmount}>-</button>
         <input type="text" onChange={enterAmount} value={amount} /> */}
-          <button disabled={count === 0} onClick={() => removeFromBasket(infoObject)}>
-            -
-        </button>
+          <button disabled={count === 0} onClick={() => removeFromBasket(infoObject)}>-</button>
           <span className="counterNumber">{count}</span>
           <button onClick={() => addToBasket(infoObject)}>+</button>
-
-          <button onClick={togglePopup}>More info</button>
-          {isOpen && <Popup handleClose={togglePopup} price={infoObject.price} name={infoObject.name} appearance={infoObject.description.appearance} mouthfeel={infoObject.description.mouthfeel} alcohol={infoObject.alc} />}
         </div>
+        {/* <button className="read_more_btn" onClick={togglePopup}>Read more</button> */}
+        {isOpen && <Popup handleClose={togglePopup} price={infoObject.price} name={infoObject.name} appearance={infoObject.description.appearance} mouthfeel={infoObject.description.mouthfeel} alcohol={infoObject.alc} />}
       </div>
     </div>
   );

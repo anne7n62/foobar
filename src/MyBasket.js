@@ -14,6 +14,9 @@ function MyBasket({ basket, ...rest }) {
 
   return (
     <>
+      <div className="clear_basket">
+        <button onClick={() => console.log("Empty basket")}>Clear</button>
+      </div>
       <ul className="BasketList">
         {basket.map((item) => (
           <BasketItem {...item} addToBasket={rest.addToBasket} removeFromBasket={rest.removeFromBasket}></BasketItem>

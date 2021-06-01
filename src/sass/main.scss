@@ -6,10 +6,13 @@
 body {
   background: radial-gradient(circle, #3E3D6E 82%, #25234A 100%);
   overflow-x: hidden;
+  overflow-y: scroll;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
 }
 
 .App {
-  padding: 25px;
+  padding: 45px;
 }
 
 nav {
@@ -23,7 +26,7 @@ nav a {
 main {
   display: grid;
   grid-template-columns: 3fr 1fr;
-  grid-gap: 3em;
+  grid-gap: 4em;
   max-width: 1500px;
   margin: 0 auto;
 }
@@ -54,12 +57,13 @@ main {
 // }
 
 .product_img img {
+  cursor: pointer;
   width: 100%;
 }
 
 .Product .counter {
   position: absolute;
-  left: 30px;
+  right: 35px;
   bottom: 35px;
 }
 
@@ -72,9 +76,12 @@ main {
 
 .ProductPrice {
   position: absolute;
-  right: 40px;
+  left: 30px;
   bottom: 40px;
   font-size: 18px;
+  color: $purple;
+  letter-spacing: 1px;
+  font-family: 'Jost', sans-serif;
 }
 
 // .Basket {
@@ -241,20 +248,38 @@ main {
 
 .Payment {
   display: grid;
-  grid-template-columns: 2fr 1fr;
-  grid-gap: 2em;
+  grid-template-columns: 2.5fr 1fr;
+  grid-gap: 4em;
   max-width: 1500px;
   margin: 0 auto;
+
+  .SubmitButton {
+    width: 100%;
+    position: absolute;
+    border-radius: 0 0 40px 0;
+    left: 0;
+    bottom: 0;
+}
 }
 
 .PaymentDetails {
-  border: 1px solid #0a0a0a;
   padding: 25px;
 }
 
 .BasketDetails {
-  border: 1px solid #0a0a0a;
-  padding: 25px;
+  padding: 45px;
+  height: auto;
+  background-color: $transparent;
+
+  h1 {
+  font-size: 18px;
+  color: #ffffff;
+  font-weight: 500;
+  letter-spacing: 3px;
+  font-family: 'Jost', sans-serif;
+  margin-bottom: 35px;
+  }
+  
 }
 
 .BasketDetails ul {

@@ -15,25 +15,31 @@
 .Product {
   background-color: $light;
   position: relative;
-  height: 600px;
+  min-height: 440px;
   border-radius: $border;
 }
 
 .product_details {
-  padding: 25px;
+  padding: 30px;
+
+  h1 {
+    margin-top: -30px;
+    font-size: 20px;
+    font-family: 'Jost', sans-serif;
+    letter-spacing: 1px;
+  }
 }
 
 .product_img img {
 width: 100%;
-border-radius: 50px 50px 50px 0px;
+border-radius: 50px 50px 0px 0px;
 }
 
 .basket_container {
   text-align: center;
 
-
   h1 {
-    margin-bottom: 30px;
+    margin-bottom: 50px;
     margin-top: 10px;
     font-size: 25px;
     color: $white;
@@ -65,6 +71,24 @@ border-radius: 50px 50px 50px 0px;
 
   }
 
+.clear_basket {
+  position: absolute;
+  top: 47px;
+  right: 45px;
+
+  button {
+    background-color: transparent;
+    border: none;
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+    font-size: 13px;
+    color: $white;
+    font-family: 'Jost', sans-serif;
+    cursor: pointer;
+  }
+}
+}
+
 .total_container {
   position: relative;
   bottom: -50px;
@@ -84,6 +108,4 @@ border-radius: 50px 50px 50px 0px;
     font-weight: 600;
     font-family: 'Jost', sans-serif;
   }
-}
-
 }

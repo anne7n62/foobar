@@ -12,7 +12,7 @@ function App() {
   const [products, setProducts] = useState([]);
   const [foobar, setFoobar] = useState({ taps: [] });
   const [basket, setBasket] = useState([]);
-  const [category, setCategory] = useState("All");
+  const [category, setCategory] = useState("All beers");
   const [orderId, setOrderId] = useState("0");
 
   // useFetch("https://dreaming-of-foobar.herokuapp.com/beertypes");
@@ -85,7 +85,7 @@ function App() {
 
   let clickFilteredBeers = filteredBeers.filter((beer) => beer.category === category);
 
-  if (category === "All") {
+  if (category === "All beers") {
     clickFilteredBeers = filteredBeers;
   }
 
@@ -116,6 +116,10 @@ function App() {
       // update the state, if amount is less than 0 remove fram basket
       setBasket((prevState) => prevState.map((item) => item).filter((item) => item.amount > 0));
     }
+  }
+
+  function emptyBasket() {
+    setBasket();
   }
 
   return (
@@ -155,7 +159,7 @@ function App() {
                   removeFromBasket={removeFromBasket}
                   basket={basket}
                 />
-                <Basket basket={basket} addToBasket={addToBasket} removeFromBasket={removeFromBasket} />
+                <Basket basket={basket} addToBasket={addToBasket} removeFromBasket={removeFromBasket} emptyBasket={emptyBasket} />
               </main>
             )}
           />

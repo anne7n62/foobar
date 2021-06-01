@@ -11,7 +11,6 @@ h3 {
 }
 
 .BasketDetails {
-  background-color: $transparent;
   color: $white;
   border-radius: $border;
   grid-area: basket;
@@ -29,4 +28,14 @@ h3 {
   grid-template-columns: 2fr 1fr;
   grid-template-areas: "paymentform basket";
   grid-gap: 2em;
+
+  .BasketItemHeading {
+    left: 85px;
+    top: 15px;
+    font-size: 15px;
+  }
+
+  .BasketItemPrice {
+    top: 17px !important;
+}
 }

@@ -16,15 +16,16 @@ function PaymentBasketItem(props) {
     // vi kender props.product.name
     // vi kender props.amount
 
+    const totalpriceItem = props.product.price * props.amount;
+
     return (
         <li>
             <div className="BasketItem">
                 <div className={"BasketItemImg"}>
                     <img src={`./images/${props.product.label}`} alt="Product" />
                 </div>
-                <h3 className="BasketItemHeading">{props.product.name}</h3>
-                <p className="BasketItemAmount">{props.amount}</p>
-                <span className="BasketItemPrice">{props.product.price} DKK</span>
+                <h3 className="BasketItemHeading">{props.amount} x {props.product.name}</h3>
+                <span className="BasketItemPrice">{totalpriceItem} DKK</span>
             </div>
         </li>
     );
