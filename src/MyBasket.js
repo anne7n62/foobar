@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import BasketMessage from "./BasketMessage";
 import BasketItem from "./BasketItem";
 
-function MyBasket({ basket, ...rest }) {
+function MyBasket({ basket, setBasket, ...rest }) {
   const totalArr = basket.map((beer) => {
     const priceObject = beer.amount * beer.product.price;
 
@@ -15,7 +15,7 @@ function MyBasket({ basket, ...rest }) {
   return (
     <>
       <div className="clear_basket">
-        <button onClick={() => console.log("Empty basket")}>Clear</button>
+        <button onClick={() => console.log("clear")}>Clear</button>
       </div>
       <ul className="BasketList">
         {basket.map((item) => (

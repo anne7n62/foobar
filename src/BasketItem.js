@@ -10,7 +10,7 @@ function BasketItem(props) {
         <h3 className="BasketItemHeading">{props.product.name}</h3>
         <div className="counter">
           <button onClick={() => props.removeFromBasket(props.product)}>-</button>
-          <input type="text" disabled value={props.amount} />
+          <span className="counterNumberBasket">{props.amount}</span>
           <button onClick={() => props.addToBasket(props.product)}>+</button>
         </div>
         <span className="BasketItemPrice">{newBeerPrice} DKK</span>

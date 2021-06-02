@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { useHistory } from "react-router-dom";
 import "react-credit-cards/es/styles-compiled.css";
 import "antd/dist/antd.css";
@@ -39,27 +40,33 @@ function Payment(props) {
       <div className="bg_text">
         <h1>Foobar</h1>
       </div>
-      <div className="PaymentDetails">
-        <h1>Payment Details</h1>
-        <form
-          onSubmit={(e) => {
-            e.preventDefault();
-            orderSubmit(filteredPostOrders);
-            location.push("/thanks");
-          }}
-        >
-          <PaymentForm />
-          <button className="SubmitButton" type="submit">Submit</button>
-        </form>
-      </div>
-      <div className="BasketDetails">
-        <h1>Basket details</h1>
-        <PaymentBasket {...props} />
-        <div className="total_container">
-          <p className="total">Total:</p>
-          <span className="total_amount">{totalAmount} DKK</span>
+      <div className="payment_column">
+        <h1>Order details</h1>
+        <div className="BasketDetails">
+          <Link to="/">
+            <button className="back_btn">Go back</button>
+          </Link>
+          <PaymentBasket {...props} />
+          <div className="total_container">
+            <p className="total">Total:</p>
+            <span className="total_amount">{totalAmount} DKK</span>
+          </div>
         </div>
-        <button className="SubmitButton" type="submit">&nbsp;</button>
+      </div>
+      <div className="payment_column">
+        <h1>Payment</h1>
+        <div className="PaymentDetails">
+          <form
+            onSubmit={(e) => {
+              e.preventDefault();
+              orderSubmit(filteredPostOrders);
+              location.push("/thanks");
+            }}
+          >
+            <PaymentForm />
+            <button className="SubmitButton" type="submit">Submit</button>
+          </form>
+        </div>
       </div>
     </div>
   );

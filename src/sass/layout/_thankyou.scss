@@ -1,0 +1,56 @@
+@import '../abstracts/variables','../abstracts/mixins';
+
+.ThankYou {
+    max-width: 600px;
+    margin: 0 auto;
+    min-height: 40vh;
+    background-color: $transparent;
+    border-radius: 50px 50px 0 50px;
+    padding: 45px;
+    position: relative;
+    text-align: center;
+
+    .thankyou_content {
+      margin-top: 70px;
+    }
+
+    h1 {
+      margin-bottom: 30px;
+      font-size: 29px;
+      color: $white;
+      font-weight: 700;
+      letter-spacing: 3px;
+      font-family: 'Jost', sans-serif;
+      display: block;
+    }
+
+    h3 {
+      display: block;
+      color: $white;
+      font-size: 15px;
+      font-weight: 500;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      position: absolute;
+      top: 50px;
+      right: 50px;
+    }
+
+    p {
+      color: $white;
+      font-size: 16px;
+      width: 320px;
+      margin: 0 auto;
+    }
+
+    .thankyou_btn {
+      background: transparent;
+      border: none;
+      font-family: 'Jost', sans-serif;
+      font-size: 16px;
+      cursor: pointer;
+      letter-spacing: 1px;
+      color: $white;
+      margin-top: 35px;
+    }
+  }

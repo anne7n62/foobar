@@ -119,7 +119,7 @@ function App() {
   }
 
   function emptyBasket() {
-    setBasket();
+    setBasket(null);
   }
 
   return (
@@ -167,7 +167,7 @@ function App() {
               </main>
             )}
           />
-          <Route path="/payment" render={() => <Payment basket={basket} setOrderId={setOrderId} orderId={orderId}></Payment>} />
+          <Route path="/payment" render={() => <Payment basket={basket} setBasket={setBasket} setOrderId={setOrderId} orderId={orderId}></Payment>} />
           <Route path="/thanks">
             <ThankYou orderId={orderId} />
           </Route>

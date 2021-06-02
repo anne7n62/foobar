@@ -1,28 +1,18 @@
-@import '../abstracts/variables';
+@import '../abstracts/variables','../abstracts/mixins';
 
 // PAYMENT SITE
-
-h3 {
-  color: $white;
-}
 
 .BasketDetails {
   color: $white;
   border-radius: $border;
+  text-align: left;
 
   .total_container {
-    float: bottom;
+    bottom: 10px;
   }
 }
 
-.PaymentDetails {
-  background-color: $transparent;
-  color: $white;
-  border-radius: 50px 50px 0 50px;
-}
-
 .Payment {
-
   .BasketItemHeading {
     left: 85px;
     top: 15px;
@@ -31,13 +21,12 @@ h3 {
 
   .BasketItemPrice {
     top: 17px !important;
-}
+  }
 }
 
 .rccs__card {
-  height: 234.5px !important;
-  width: 335px !important;
-  margin-top: 25px !important;
+  height: 200px !important;
+  width: 100% !important;
 }
 
 .rccs__card--unknown > div {
@@ -46,8 +35,16 @@ h3 {
   box-shadow: none;
 }
 
+form {
+  margin-top: 25px;
+}
+
+.card_container {
+  padding: 40px 0;
+}
+
 .rccs__name {
-letter-spacing: 0.5px;
+  letter-spacing: 0.5px;
 }
 
 input:is([type="text"], [type="number"], [type="email"]) {
@@ -92,4 +89,181 @@ input:is([type="text"], [type="number"], [type="email"]) {
   z-index: 100;
   position: absolute;
   top: -13px;
+}
+
+.Payment {
+  display: grid;
+  grid-template-columns: 2.5fr 1fr;
+  grid-gap: 4em;
+  max-width: 1100px;
+  margin: 0 auto;
+  margin-top: -20px;
+}
+
+.PaymentDetails {
+  padding: 45px;
+  text-align: left;
+  position: relative;
+  background-color: $transparent;
+  color: $white;
+  border-radius: 50px 50px 50px 0px;
+
+  h1 {
+    font-size: 18px;
+    color: #ffffff;
+    font-weight: 500;
+    letter-spacing: 2px;
+    font-family: 'Jost', sans-serif;
+    margin-bottom: 35px;
+  }
+
+  .SubmitButton {
+    width: 100%;
+    position: absolute;
+    border-radius: 0 0 40px 0;
+  }
+}
+
+.BasketDetails {
+  padding: 45px;
+  height: auto;
+  background-color: $transparent;
+  position: relative;
+
+  h1 {
+  font-size: 18px;
+  color: #ffffff;
+  font-weight: 500;
+  letter-spacing: 2px;
+  font-family: 'Jost', sans-serif;
+  margin-bottom: 35px;
+  }
+}
+
+.BasketDetails ul {
+  margin-left: -35px;
+  list-style: none;
+  padding: 50px 35px;
+  padding-right: 0;
+}
+
+#PaymentForm {
+  margin: auto;
+  margin-top: -15px;
+}
+
+label,
+input {
+  display: block;
+  text-align: left;
+  margin-bottom: 5px;
+}
+
+.form-control {
+  margin-bottom: 10px;
+}
+
+
+/******FORM VALIDATION*****/
+
+.error-message {
+  color: #ff9f8f;
+  max-height: 0;
+  overflow: hidden;
+  transition: 0.3s max-height;
+  display: block;
+  max-height: 2rem;
+  margin-top: -10px;
+  margin-bottom: 25px;
+  margin-left: 5px;
+}
+
+.hidden {
+  display: none;
+}
+
+input:not(:focus, :placeholder-shown):valid {
+  background-image: url("../../valid.png");
+  background-repeat: no-repeat;
+  background-position: 95% 19px;
+  background-size: 1em;
+  border-color: rgb(94, 194, 94);
+}
+
+input[name="expiry"]:valid {
+  background-position: 92% 19px;
+}
+input[name="cvc"]:valid {
+  background-position: 88% 19px;
+}
+
+input:not(:focus, :placeholder-shown):invalid,
+#cardnumber.custom,
+#monthyear.custom {
+  background-image: url("../../invalid.png");
+  background-repeat: no-repeat;
+  background-position: 95% 19px;
+  background-size: 1em;
+  border-color: #f47e69;
+  animation: shake 0.125s 2 backwards;
+}
+
+input[name="expiry"]:invalid, #cvc.custom {
+  background-position: 88% 19px;
+}
+input[name="cvc"]:invalid, #monthyear.custom {
+  background-position: 88% 19px !important;
+}
+
+
+@keyframes shake {
+  25% {
+    transform: translateX(-6px);
+  }
+  75% {
+    transform: translateX(6px);
+  }
+}
+
+.back_btn {
+  background: transparent;
+  border: none;
+  font-family: 'Jost', sans-serif;
+  font-size: 16px;
+  cursor: pointer;
+  letter-spacing: 1px;
+  color: $white;
+}
+
+.back_btn::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 1px;
+  bottom: -3px;
+  left: 0;
+  background-color: #fff;
+  visibility: hidden;
+  transform: scaleX(0);
+  transition: all 0.3s ease-in-out 0s;
+}
+
+.form-group {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr;
+  grid-gap: 2em;
+}
+
+.payment_column {
+  text-align: center;
+
+  h1 {
+    margin-bottom: 40px;
+    margin-top: -10px;
+    font-size: 22px;
+    color: #ffffff;
+    font-weight: 700;
+    letter-spacing: 2px;
+    font-family: 'Jost', sans-serif;
+}
 }

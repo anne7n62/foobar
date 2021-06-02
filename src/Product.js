@@ -41,7 +41,7 @@ function Product({ products, addToBasket, removeFromBasket, filteredBeers, baske
           <button onClick={() => addToBasket(infoObject)}>+</button>
         </div>
         {/* <button className="read_more_btn" onClick={togglePopup}>Read more</button> */}
-        {isOpen && <Popup handleClose={togglePopup} price={infoObject.price} name={infoObject.name} appearance={infoObject.description.appearance} mouthfeel={infoObject.description.mouthfeel} alcohol={infoObject.alc} />}
+        {isOpen && <Popup handleClose={togglePopup} price={infoObject.price} name={infoObject.name} appearance={infoObject.description.appearance} mouthfeel={infoObject.description.mouthfeel} alcohol={infoObject.alc} category={infoObject.category} label={infoObject.label} />}
       </div>
     </div>
   );
