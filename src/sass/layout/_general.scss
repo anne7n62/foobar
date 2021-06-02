@@ -1,7 +1,7 @@
 @import '../abstracts/variables','../abstracts/mixins';
 
 body {
-    background: radial-gradient(circle, #3e3d6e 62%, #25234a 100%);
+    background: radial-gradient(circle, #33325F 62%, #12112E 100%);
     overflow-x: hidden;
     scrollbar-width: none;
     -ms-overflow-style: none;
@@ -9,7 +9,12 @@ body {
 }
   
 .App {
-    padding: 45px;
+    padding: 25px;
+
+    // 992px window width and more
+    @include rwd(650) {
+        padding: 45px;
+    }
 }
 
 main {

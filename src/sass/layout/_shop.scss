@@ -3,11 +3,11 @@
 .filternav {
   padding-left: 0;
   grid-column: 1/-1;
-  margin-bottom: 0px;
+  margin-bottom: 25px;
   text-align: center;
 
   // 992px window width and more
-  @include lg {
+  @include rwd(580) {
     margin-bottom: 0px;
   }
 
@@ -16,8 +16,8 @@
     margin-bottom: 25px;
   
     // 992px window width and more
-    @include lg {
-      margin-bottom: 0px;
+    @include rwd(1150) {
+      margin-bottom: 0px !important;
     }
   }
 }
@@ -27,6 +27,12 @@
   position: relative;
   min-height: 440px;
   border-radius: $border;
+  margin-bottom: 25px;
+
+  // 992px window width and more
+  @include rwd(550) {
+    margin-bottom: 0px;
+  }
 }
 
 .counter {
@@ -45,8 +51,8 @@
   padding: 30px;
 
   h1 {
-    margin-top: -30px;
-    font-size: 20px;
+    margin-top: -40px;
+    font-size: 18px;
     font-family: 'Jost', sans-serif;
     letter-spacing: 1px;
   }
