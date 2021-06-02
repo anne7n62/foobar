@@ -114,14 +114,14 @@ input:is([type="text"], [type="number"], [type="email"]) {
   margin: 0 auto;
   margin-top: -20px;
 
-      // 992px window width and more
-      @include rwd(900) {
-        display: grid;
-        grid-template-columns: 2.5fr 1fr;
-        grid-gap: 4em;
-        max-width: 1100px;
-        margin-top: -50px;
-      }
+  // 992px window width and more
+  @include rwd(900) {
+    display: grid;
+    grid-template-columns: 2.5fr 1fr;
+    grid-gap: 4em;
+    max-width: 1100px;
+    margin-top: -50px;
+  }
 }
 
 .PaymentDetails {
@@ -202,8 +202,28 @@ input {
   display: block;
   max-height: 2rem;
   margin-top: -10px;
-  margin-bottom: 25px;
+  margin-bottom: 30px;
   margin-left: 5px;
+  animation-name: disappear;
+  animation-timing-function: ease-in-out;
+  animation-fill-mode: both;
+  animation-duration: 4s;
+}
+
+@keyframes disappear {
+  25% {
+    opacity: 1;
+    visibility: visible;
+  }
+  75% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 0;
+visibility: hidden;
+height: 0;
+margin-bottom: 20px;
+  }
 }
 
 .hidden {

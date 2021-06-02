@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
 import ProductList from "./ProductList.js";
 import Basket from "./Basket.js";
+import PopupBasket from "./PopupBasket";
 import Payment from "./Payment.js";
 import ThankYou from "./ThankYou.js";
 import prices from "./prices.json";
@@ -118,9 +119,11 @@ function App() {
     }
   }
 
-  function emptyBasket() {
-    setBasket(null);
-  }
+  //popop basket
+  const [popupIsOpen, setPopupIsOpen] = useState(false);
+  const toggleBasketPopup = () => {
+    setPopupIsOpen(!popupIsOpen);
+  };
 
   return (
     <Router>
@@ -133,6 +136,8 @@ function App() {
         <header>
           <Link to="/"><img src={`./images/foobar_logo.svg`} className="logo" alt="Logo" /></Link>
           <div className="dashboard_navigation">
+            <button className="basket_btn" onClick={toggleBasketPopup}></button>
+            {popupIsOpen && <PopupBasket handleClose={toggleBasketPopup} basket={basket} addToBasket={addToBasket} removeFromBasket={removeFromBasket} />}
             <button className="notification_btn"></button>
             <button className="settings_btn"></button>
           </div>
@@ -157,7 +162,7 @@ function App() {
                   removeFromBasket={removeFromBasket}
                   basket={basket}
                 />
-                <Basket basket={basket} addToBasket={addToBasket} removeFromBasket={removeFromBasket} emptyBasket={emptyBasket} />
+                <Basket basket={basket} addToBasket={addToBasket} removeFromBasket={removeFromBasket} />
               </main>
             )}
           />

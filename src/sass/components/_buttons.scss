@@ -75,9 +75,17 @@
 }
 
 .SubmitButton {
-  width: 100%;
-  position: absolute;
-  border-radius: 0 0 40px 0;
-  left: 0;
-  bottom: 0;
+  width: 100% !important;
+  position: absolute !important;
+  margin: 0 !important;
+  border-radius: 0 0 40px 0 !important;
+  left: 0 !important;
+  bottom: 0 !important;
+}
+
+.Basket_popup {
+  .SubmitButton {
+    height: 60px;
+    bottom: 0px !important;
+  }
 }

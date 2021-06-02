@@ -1,4 +1,4 @@
-@import '../abstracts/variables';
+@import '../abstracts/variables','../abstracts/mixins';
 
 header {
   padding: 40px 40px 25px;
@@ -30,6 +30,22 @@ header {
     backdrop-filter: blur(20px);
     color: #fff;
   }
+}
+
+.basket_btn {
+  background-image: url("../../img/basket.svg");
+  background-repeat: no-repeat;
+  background-size: 40%;
+  background-position: center;
+  cursor: pointer;
+
+  @include rwd(1000) {
+    display: none;
+  }
+}
+
+.basket_btn:hover {
+  background-color: rgba(255,255,255, 0.3);
 }
 
 .notification_btn {

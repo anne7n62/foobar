@@ -3,6 +3,7 @@
 .ThankYou {
     max-width: 600px;
     margin: 0 auto;
+    margin-top: 12vh;
     min-height: 40vh;
     background-color: $transparent;
     border-radius: 50px 50px 0 50px;
@@ -10,8 +11,19 @@
     position: relative;
     text-align: center;
 
+      // 992px window width and more
+      @include rwd(550) {
+        margin-top: 15vh;
+      }
+
     .thankyou_content {
       margin-top: 80px;
+      margin-bottom: 50px;
+
+      // 992px window width and more
+      @include rwd(550) {
+        margin-top: 80px;
+      }
     }
 
     h1 {
