@@ -14,7 +14,7 @@ function Header({ basket, addToBasket, removeFromBasket }) {
 
   return (
     <header>
-      <Link to="/"><img src={`./images/foobar_logo.svg`} className="logo" alt="Logo" /></Link>
+      <Link to="/"><img src={`./images/foobar_logo.png`} className="logo" alt="Logo" /></Link>
       <div className="dashboard_navigation">
         <button className="basket_btn" onClick={toggleBasketPopup}></button>
         {popupIsOpen && <PopupBasket handleClose={toggleBasketPopup} basket={basket} addToBasket={addToBasket} removeFromBasket={removeFromBasket} />}
