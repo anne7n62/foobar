@@ -2,7 +2,7 @@ function BasketItem(props) {
   const newBeerPrice = props.amount * props.product.price;
 
   return (
-    <li>
+    <li className="list">
       <div className="basket_item">
         <div className={"basket_item_img"}>
           <img src={`./images/${props.product.label}`} alt="Product" />
