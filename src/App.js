@@ -1,11 +1,11 @@
 import "./sass/main.scss";
 import { useState, useEffect } from "react";
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 import ProductList from "./ProductList.js";
 import Basket from "./Basket.js";
-import PopupBasket from "./PopupBasket";
 import Payment from "./Payment.js";
+import Header from "./Header.js";
 import ThankYou from "./ThankYou.js";
 import prices from "./prices.json";
 
@@ -16,40 +16,18 @@ function App() {
   const [category, setCategory] = useState("All beers");
   const [orderId, setOrderId] = useState("0");
 
-  // useFetch("https://dreaming-of-foobar.herokuapp.com/beertypes");
-
-  // function useFetch(url) {
-  //   useEffect(() => {
-  //     async function fetchFromAPI() {
-  //       const json = await (await fetch(url)).json();
-  //       const nextJSON = json.map((beer) => {
-  //         //laver nyt object. Match mellem names
-  //         const priceObject = prices.find((item) => item.name === beer.name);
-  //         //opretter en egenskab til beer der hedder pris
-  //         beer.price = priceObject.price;
-  //         return beer;
-  //       });
-
-  //       setProducts(nextJSON);
-  //     }
-
-  //     fetchAvailable("https://dreaming-of-foobar.herokuapp.com");
-  //     fetchFromAPI();
-  //   }, [url]);
-
-  //   return foobar;
-  // }
+  // Data fetch using useEffect
 
   useEffect(() => {
     function fetchBeerTypes() {
-      //Fetch beertypes from Heroku
+      // Fetch endpoint beertypes from Heroku
       fetch("https://dreaming-of-foobar.herokuapp.com/beertypes")
         .then((resp) => resp.json())
         .then((json) => {
           const nextJSON = json.map((beer) => {
-            //laver nyt object. Match mellem names
+            // Creates a new object and finding matches in prices
             const priceObject = prices.find((item) => item.name === beer.name);
-            //opretter en egenskab til beer der hedder pris
+            // Creating a new property 'price'
             beer.price = priceObject.price;
             return beer;
           });
@@ -66,21 +44,13 @@ function App() {
       .then((resp) => resp.json())
       .then((json) => {
         setFoobar(json);
-
-        // //tjekker hvert femte sekund
-        // setTimeout(() => {
-        //   fetchAvailable(url);
-        // }, 5000);
       });
   }
 
-  //arr that has all the names of beers that on tap.
+  // Array that has all the names of beers that are on tap
   const beersFromTap = foobar.taps.map((beer) => beer.beer);
 
-  // const basketPrices = basket.map(beer => beer.product.price);
-
-  // console.log(basketPrices)
-
+  // Filter through products and beersFromTap and finding matches under category
   const filteredBeers = products.filter((beers) => beersFromTap.includes(beers.name));
   const btnCategories = products.filter((beers) => beersFromTap.includes(beers.name));
 
@@ -90,9 +60,7 @@ function App() {
     clickFilteredBeers = filteredBeers;
   }
 
-  // console.log(products)
-  // console.log(foobar.taps)
-  // console.log(filteredBeers)
+  // Add to basket function
 
   function addToBasket(product) {
     // Check if a product of this type is already in the basket
@@ -108,40 +76,20 @@ function App() {
     }
   }
 
+  // Remove from basket function
+
   function removeFromBasket(product) {
-    // Check if a product of this type is already in the basket
     const productInBasket = basket.find((item) => item.product.name === product.name);
     if (productInBasket) {
-      // remove one product of that type in the basket
       productInBasket.amount--;
-      // update the state, if amount is less than 0 remove fram basket
       setBasket((prevState) => prevState.map((item) => item).filter((item) => item.amount > 0));
     }
   }
 
-  //popop basket
-  const [popupIsOpen, setPopupIsOpen] = useState(false);
-  const toggleBasketPopup = () => {
-    setPopupIsOpen(!popupIsOpen);
-  };
-
   return (
     <Router>
       <div className="App">
-        {/* <nav>
-          <Link to="/">Shop</Link>
-          <Link to="/payment">Payment</Link>
-          <Link to="/thanks">Thanks</Link>
-        </nav> */}
-        <header>
-          <Link to="/"><img src={`./images/foobar_logo.svg`} className="logo" alt="Logo" /></Link>
-          <div className="dashboard_navigation">
-            <button className="basket_btn" onClick={toggleBasketPopup}></button>
-            {popupIsOpen && <PopupBasket handleClose={toggleBasketPopup} basket={basket} addToBasket={addToBasket} removeFromBasket={removeFromBasket} />}
-            <button className="notification_btn"></button>
-            <button className="settings_btn"></button>
-          </div>
-        </header>
+        <Header addToBasket={addToBasket} removeFromBasket={removeFromBasket} basket={basket} />
         <Switch>
           <Route
             path="/"

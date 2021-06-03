@@ -1,8 +1,9 @@
-function FilterNav({ products, setCategory, taps, btnCategories }) {
+function FilterNav({ products, setCategory, btnCategories }) {
   function updateCategory(e) {
     setCategory(e.target.innerText);
   }
 
+  // Creating an array with the categories
   const categories = [];
   btnCategories.forEach((beer) => {
     if (categories.indexOf(beer.category) < 0) {
@@ -10,6 +11,7 @@ function FilterNav({ products, setCategory, taps, btnCategories }) {
     }
   });
 
+  // Creating a button for each category
   const filterbtns = categories.map((category) => <Filterbtn className="filterbtn" products={products} updateCategory={updateCategory} key={category} category={category}></Filterbtn>);
 
   return (
@@ -31,3 +33,5 @@ function Filterbtn({ category, products, updateCategory }) {
 }
 
 export default FilterNav;
+
+

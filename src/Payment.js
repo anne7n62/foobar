@@ -8,28 +8,26 @@ import PaymentBasket from "./PaymentBasket";
 import PaymentForm from "./PaymentForm";
 
 function Payment(props) {
+  // Defining the items in basket
   let filteredPostOrders = props.basket.map((order) => {
     return { name: order.product.name, amount: Number(order.amount) };
   });
 
   let location = useHistory();
 
-  console.log(filteredPostOrders);
-
   const totalArr = props.basket.map((beer) => {
     const priceObject = beer.amount * beer.product.price;
-
     return priceObject;
   });
 
-  const totalAmount = totalArr.reduce((previousScore, currentScore, index) => previousScore + currentScore, 0);
+  // Calculate total amount of basket using reduce
+  const totalAmount = totalArr.reduce((previousScore, currentScore) => previousScore + currentScore, 0);
 
   function orderSubmit(fullData) {
     postData(fullData, "https://dreaming-of-foobar.herokuapp.com/order", (data) => {
       return data.message === "added" ? (
         <div>
           {props.setOrderId(data.id)}
-          {console.log(data.id)}
         </div>
       ) : null;
     });

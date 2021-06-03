@@ -10,12 +10,6 @@ export default function PaymentBasket({ basket }) {
 
 function PaymentBasketItem(props) {
 
-    // const basketArray = [];
-
-
-    // vi kender props.product.name
-    // vi kender props.amount
-
     const totalpriceItem = props.product.price * props.amount;
 
     return (

@@ -1,25 +1,18 @@
 import React, { useState } from "react";
 import Popup from "./Popup.js";
 
-function Product({ products, addToBasket, removeFromBasket, filteredBeers, basket, tap }) {
-  //popop
+function Product({ addToBasket, removeFromBasket, basket, tap }) {
+  // Popup using state
   const [isOpen, setIsOpen] = useState(false);
   const togglePopup = () => {
     setIsOpen(!isOpen);
   };
 
-  //vi laver et objekt
   const infoObject = tap;
-
-  // const styles = {
-  //   border: "1px solid #000",
-  //   backgroundColor: infoObject.soldOut ? "red" : "white",
-  // };
-
   const found = basket.filter((item) => item.key === infoObject.name)[0];
 
+  // Setting counter in amount button, if product is in basket, match the counter
   let count = 0;
-
   if (found) {
     count = found.amount;
   }
@@ -31,16 +24,12 @@ function Product({ products, addToBasket, removeFromBasket, filteredBeers, baske
       </div>
       <div className="product_details">
         <h1>{infoObject.name}</h1>
-        {/* <p>{infoObject.description.overallImpression}</p> */}
         <span className="ProductPrice">{infoObject.price} DKK</span>
         <div className="counter">
-          {/* <button onClick={decreaseAmount}>-</button>
-        <input type="text" onChange={enterAmount} value={amount} /> */}
           <button disabled={count === 0} onClick={() => removeFromBasket(infoObject)}>-</button>
           <span className="counterNumber">{count}</span>
           <button onClick={() => addToBasket(infoObject)}>+</button>
         </div>
-        {/* <button className="read_more_btn" onClick={togglePopup}>Read more</button> */}
         {isOpen && <Popup handleClose={togglePopup} price={infoObject.price} name={infoObject.name} appearance={infoObject.description.appearance} mouthfeel={infoObject.description.mouthfeel} alcohol={infoObject.alc} category={infoObject.category} label={infoObject.label} />}
       </div>
     </div>

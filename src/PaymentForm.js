@@ -15,14 +15,7 @@ class PaymentForm extends React.Component {
     dateValid: true,
     cvcValid: true,
     nameValid: true,
-    // visibility: 'none',
   };
-
-  // changeMessageVisibility = () => {
-  //   this.setState({
-  //     visibility: 'visible'
-  //   })
-  // }
 
   _renderCard = () => () => {
     const [cardnumber] = useState("");
@@ -45,7 +38,6 @@ class PaymentForm extends React.Component {
   handleInputBlurName = (e) => {
     if (e.target.value.length < 2) {
       this.setState({ nameValid: false });
-      // this.errorCC.style={{display: visible }}
     } else {
       this.setState({ nameValid: true });
     }
@@ -54,7 +46,6 @@ class PaymentForm extends React.Component {
   handleInputBlurCC = (e) => {
     if (e.target.value.length !== 19) {
       this.setState({ cardnumberValid: false });
-      // this.errorCC.style={{display: visible }}
     } else {
       this.setState({ cardnumberValid: true });
     }
@@ -63,7 +54,6 @@ class PaymentForm extends React.Component {
   handleInputBlurCvc = (e) => {
     if (e.target.value.length !== 3) {
       this.setState({ cvcValid: false });
-      // this.errorCC.style={{display: visible }}
     } else {
       this.setState({ cvcValid: true });
     }
@@ -109,7 +99,6 @@ class PaymentForm extends React.Component {
               placeholder="Enter your card no."
               type="text"
               required
-              minLength="19"
               mask="9999 9999 9999 9999"
               value={this.number}
               maskChar=""
@@ -128,7 +117,6 @@ class PaymentForm extends React.Component {
                 name="expiry"
                 id="monthyear"
                 mask="99/99"
-                minLength="5"
                 type="text"
                 placeholder="MM/YY"
                 className={`ant-input ${this.state.dateValid ? "" : "custom"}`}

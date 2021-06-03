@@ -1,5 +1,4 @@
 function ThankYou(props) {
-  console.log("Thank you");
 
   return (
     <>
