@@ -192,6 +192,10 @@
   color: $black;
   letter-spacing: 1px;
   font-family: 'Jost', sans-serif;
+
+  @include rwd(1000){
+
+  }
 }
 
 .basket ul {
@@ -406,14 +410,14 @@ display: block;
   z-index: 1000;
   position: relative;
   width: 80%;
-  margin: 0 auto;
-  margin-top: calc(100vh - 85vh - 20px);
-  background: $light;
+  margin: 0;
+  background: #ebebeb;
   border-radius: 4px;
-  overflow: auto;
   border-radius: 50px 50px 50px 0;
   padding: 45px;
   height: 70vh;
+  left: 10%;
+  top: 10%;
 
   .total_container .total_amount {
     position: absolute;
