@@ -1,6 +1,6 @@
 export default function PaymentBasket({ basket }) {
     return (
-        <ul className="PaymentBasket">
+        <ul className="payment_basket">
             {basket.map(item => (
                 <PaymentBasketItem {...item} />
             ))}
@@ -14,12 +14,12 @@ function PaymentBasketItem(props) {
 
     return (
         <li>
-            <div className="BasketItem">
-                <div className={"BasketItemImg"}>
+            <div className="basket_item">
+                <div className={"basket_item_img"}>
                     <img src={`./images/${props.product.label}`} alt="Product" />
                 </div>
-                <h3 className="BasketItemHeading">{props.amount} x {props.product.name}</h3>
-                <span className="BasketItemPrice">{totalpriceItem} DKK</span>
+                <h3 className="basket_item_heading">{props.amount} x {props.product.name}</h3>
+                <span className="basket_item_price">{totalpriceItem} DKK</span>
             </div>
         </li>
     );

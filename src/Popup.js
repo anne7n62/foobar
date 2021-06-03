@@ -2,9 +2,9 @@ import React from "react";
 
 const Popup = (props) => {
   return (
-    <div className="popup-box" onClick={props.handleClose}>
+    <div className="popup_box" onClick={props.handleClose}>
       <div className="box">
-        <span className="close-icon" onClick={props.handleClose}>
+        <span className="close_icon" onClick={props.handleClose}>
           x
         </span>
         <div className="text_column">

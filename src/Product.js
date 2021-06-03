@@ -18,16 +18,16 @@ function Product({ addToBasket, removeFromBasket, basket, tap }) {
   }
 
   return (
-    <div className="Product">
+    <div className="product">
       <div className={"product_img"} onClick={togglePopup}>
         <img src={`./images/${infoObject.label}`} alt="Product" />
       </div>
       <div className="product_details">
         <h1>{infoObject.name}</h1>
-        <span className="ProductPrice">{infoObject.price} DKK</span>
+        <span className="product_price">{infoObject.price} DKK</span>
         <div className="counter">
           <button disabled={count === 0} onClick={() => removeFromBasket(infoObject)}>-</button>
-          <span className="counterNumber">{count}</span>
+          <span className="counter_number">{count}</span>
           <button onClick={() => addToBasket(infoObject)}>+</button>
         </div>
         {isOpen && <Popup handleClose={togglePopup} price={infoObject.price} name={infoObject.name} appearance={infoObject.description.appearance} mouthfeel={infoObject.description.mouthfeel} alcohol={infoObject.alc} category={infoObject.category} label={infoObject.label} />}

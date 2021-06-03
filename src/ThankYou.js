@@ -5,7 +5,7 @@ function ThankYou(props) {
       <div className="bg_text">
         <h1>Foobar</h1>
       </div>
-      <div className="ThankYou">
+      <div className="thankyou_container">
         <div className="thankyou_content">
           <h1>Thank you!</h1>
           <h3>Order id: {props.orderId}</h3>

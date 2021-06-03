@@ -3,12 +3,12 @@
 body {
     overflow-x: hidden;
     background: radial-gradient(circle, #33325F 62%, #12112E 100%);
-background-size: cover;
+    background-size: cover;
 }
   
-.App {
+.app {
     padding: 25px;
-    // 992px window width and more
+
     @include rwd(650) {
         padding: 45px;
     }
@@ -17,7 +17,6 @@ background-size: cover;
 main {
     display: block;
   
-    // 1400px window width and more
     @include rwd(1000) {
         display: grid;
         grid-template-columns: 2fr 1fr;
@@ -26,13 +25,12 @@ main {
         margin: 0 auto;
     }
 
-        // 1400px window width and more
-        @include rwd(1200) {
-            display: grid;
-            grid-template-columns: 3fr 1fr;
-            grid-gap: 4em;
-            max-width: 1500px;
-            margin: 0 auto;
-        }
+    @include rwd(1200) {
+        display: grid;
+        grid-template-columns: 3fr 1fr;
+        grid-gap: 4em;
+        max-width: 1500px;
+        margin: 0 auto;
+    }
 }
 

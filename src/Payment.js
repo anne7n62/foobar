@@ -34,26 +34,13 @@ function Payment(props) {
   }
 
   return (
-    <div className="Payment">
+    <div className="payment">
       <div className="bg_text">
         <h1>Foobar</h1>
       </div>
       <div className="payment_column">
-        <h1>Order details</h1>
-        <div className="BasketDetails">
-          <Link to="/">
-            <button className="back_btn">Go back</button>
-          </Link>
-          <PaymentBasket {...props} />
-          <div className="total_container">
-            <p className="total">Total:</p>
-            <span className="total_amount">{totalAmount} DKK</span>
-          </div>
-        </div>
-      </div>
-      <div className="payment_column">
         <h1>Payment</h1>
-        <div className="PaymentDetails">
+        <div className="payment_details">
           <form
             onSubmit={(e) => {
               e.preventDefault();
@@ -62,8 +49,21 @@ function Payment(props) {
             }}
           >
             <PaymentForm />
-            <button className="SubmitButton" type="submit">Submit</button>
+            <button className="submit_button" type="submit">Submit</button>
           </form>
+        </div>
+      </div>
+      <div className="payment_column">
+        <h1>Order details</h1>
+        <div className="basket_details">
+          <Link to="/">
+            <button className="back_btn">Go back</button>
+          </Link>
+          <PaymentBasket {...props} />
+          <div className="total_container">
+            <p className="total">Total:</p>
+            <span className="total_amount">{totalAmount} DKK</span>
+          </div>
         </div>
       </div>
     </div>

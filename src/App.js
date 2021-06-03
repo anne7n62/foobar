@@ -88,7 +88,7 @@ function App() {
 
   return (
     <Router>
-      <div className="App">
+      <div className="app">
         <Header addToBasket={addToBasket} removeFromBasket={removeFromBasket} basket={basket} />
         <Switch>
           <Route
@@ -100,7 +100,7 @@ function App() {
                   <h1>Foobar</h1>
                 </div>
                 <ProductList
-                  className="ProductList"
+                  className="product_list"
                   btnCategories={btnCategories}
                   setCategory={setCategory}
                   filteredBeers={clickFilteredBeers}

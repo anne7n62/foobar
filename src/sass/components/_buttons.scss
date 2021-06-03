@@ -1,14 +1,12 @@
 @import '../abstracts/variables';
 
-//Submit button
-
-.SubmitButton {
+.submit_button {
   width: 100%;
   padding: 18px 18px;
   border: none;
   cursor: pointer;
   background: rgb(99,200,186);
-  background: linear-gradient(149deg, rgba(99,200,186,1) 0%, rgba(62,167,153,1) 100%);
+  background: $tealgradient;
   color: $white;
   font-family: 'Jost', sans-serif;
   font-weight: 500;
@@ -16,7 +14,6 @@
   letter-spacing: 1px;
 }
 
-//Filter buttons
 .filternav button {
   background-color: $transparent;
   padding: 12px 22px;
@@ -34,16 +31,7 @@
   background-color: rgba(255,255,255, 0.2);
 }
 
-// .read_more_btn {
-//   background-color: transparent;
-//   border: none;
-//   padding: 0;
-//   font-family: 'Quicksand', sans-serif;
-//   cursor: pointer;
-// }
-
-//Counter buttons
-.Product {
+.product {
   .counter {
     background-color: $purple;
     border-radius: 20px;
@@ -69,12 +57,12 @@
   }
 }
 
-.Basket {
+.basket {
   position: relative;
   padding-bottom: 130px;
 }
 
-.SubmitButton {
+.submit_button {
   width: 100% !important;
   position: absolute !important;
   margin: 0 !important;
@@ -83,8 +71,8 @@
   bottom: 0 !important;
 }
 
-.Basket_popup {
-  .SubmitButton {
+.basket_popup {
+  .submit_button {
     height: 60px;
     bottom: 0px !important;
   }

@@ -13,14 +13,14 @@ function MyBasket({ basket, setBasket, ...rest }) {
   });
 
   // Calculate total amount of basket using reduce
-  const totalAmount = totalArr.reduce((previousScore, currentScore) => previousScore + currentScore, 0);
+  const totalAmount = totalArr.reduce((previousScore, currentScore) => previousScore + currentScore);
 
   return (
     <>
       {/* <div className="clear_basket">
         <button onClick={() => console.log("clear")}>Clear</button>
       </div> */}
-      <ul className="BasketList">
+      <ul className="basket_list">
         {basket.map((item) => (
           <BasketItem {...item} addToBasket={rest.addToBasket} removeFromBasket={rest.removeFromBasket}></BasketItem>
         ))}
@@ -31,7 +31,7 @@ function MyBasket({ basket, setBasket, ...rest }) {
         <span className="total_amount">{totalAmount} DKK</span>
       </div>
       <Link to="/payment">
-        <button className="SubmitButton">Go to payment</button>
+        <button className="submit_button">Go to payment</button>
       </Link>
     </>
   );

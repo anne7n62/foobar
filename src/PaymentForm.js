@@ -79,7 +79,7 @@ class PaymentForm extends React.Component {
 
   render() {
     return (
-      <div id="PaymentForm">
+      <div id="payment_form">
         <div className="">
           <Cards cvc={this.state.cvc} expiry={this.state.expiry} focused={this.state.focus} name={this.state.name} number={this.state.number} />
         </div>

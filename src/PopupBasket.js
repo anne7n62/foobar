@@ -4,10 +4,10 @@ import BasketMessage from "./BasketMessage";
 
 const PopupBasket = (props) => {
     return (
-        <div className="basket-popup-box" onClick={props.handleClose}>
-            <div className="basket-box">
-                <span className="basket-close-icon" onClick={props.handleClose}>x</span>
-                <div className="Basket_popup">
+        <div className="basket_popup_box" onClick={props.handleClose}>
+            <div className="basket_box">
+                <span className="basket_close" onClick={props.handleClose}>x</span>
+                <div className="basket_popup">
                     <h2>Basket</h2>
                     {props.basket.length > 0 && <MyBasket {...props}></MyBasket>}
                     {props.basket.length === 0 && <BasketMessage></BasketMessage>}

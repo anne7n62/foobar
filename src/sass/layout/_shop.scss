@@ -6,7 +6,6 @@
   margin-bottom: 25px;
   text-align: center;
 
-  // 992px window width and more
   @include rwd(580) {
     margin-bottom: 0px;
   }
@@ -15,21 +14,19 @@
     margin-right: 25px;
     margin-bottom: 25px;
   
-    // 992px window width and more
     @include rwd(1150) {
       margin-bottom: 0px !important;
     }
   }
 }
 
-.Product {
+.product {
   background-color: $light;
   position: relative;
   min-height: 440px;
   border-radius: $border;
   margin-bottom: 25px;
 
-  // 992px window width and more
   @include rwd(550) {
     margin-bottom: 0px;
   }
@@ -39,11 +36,11 @@
   color: $white;
 }
 
-.ProductPrice {
+.product_price {
   color: $white;
 }
 
-.counterNumber {
+.counter_number {
   color: $white;
 }
 
@@ -66,8 +63,12 @@
 .basket_container {
   text-align: center;
   margin-top: 50px;
+  display: none;
+
+  @include rwd(1000) {
+    display: block;
+  }
   
-  // 992px window width and more
   @include rwd(600) {
     margin-top: -2px;
   }
@@ -83,7 +84,7 @@
   }
 }
 
-.Basket {
+.basket {
   text-align: left;
   background-color: $transparent;
   border-radius: 50px 50px 50px 0;
@@ -143,16 +144,15 @@
   }
 }
 
-.ProductList {
+.product_list {
   display: block;
 
-    // 576px window width and more
     @include sm {
       display: grid;
       grid-template-columns: 1fr 1fr;
       grid-gap: 4em;
     }
-    // 992px window width and more
+
     @include rwd(1300) {
       display: grid;
       grid-template-columns: 1fr 1fr 1fr;
@@ -165,20 +165,26 @@
   width: 100%;
 }
 
-.Product .counter {
+.product .counter {
   position: absolute;
   right: 35px;
   bottom: 35px;
 }
 
-.counterNumber {
+.counter_number {
   position: relative;
   font-size: 18px;
   top: 5px;
   left: 15px;
 }
 
-.ProductPrice {
+.counter_number_basket {
+  position: relative;
+  top: 3px;
+  left: 8px;
+}
+
+.product_price {
   position: absolute;
   left: 30px;
   bottom: 40px;
@@ -188,13 +194,13 @@
   font-family: 'Jost', sans-serif;
 }
 
-.Basket ul {
+.basket ul {
   margin-left: -40px;
   list-style: none;
   margin-top: 35px;
 }
 
-.BasketItem {
+.basket_item {
   position: relative;
   margin-bottom: 25px;
 
@@ -219,7 +225,7 @@
     width: 25px;
   }
 
-  .BasketItemPrice {
+  .basket_item_price {
     position: absolute;
     top: 32px;
     right: 0px;
@@ -231,11 +237,11 @@
   }
 }
 
-.BasketItem img {
+.basket_item img {
   display: block;
 }
 
-.BasketItemImg {
+.basket_item_img {
   display: inline-block;
   margin-right: 20px;
 
@@ -244,7 +250,7 @@
   }
 }
 
-.BasketItemHeading {
+.basket_item_heading {
   position: absolute;
   left: 85px;
   top: 5px;
@@ -255,11 +261,11 @@
   letter-spacing: 1px;
 }
 
-.BasketItemImg img {
+.basket_item_img img {
   width: 60px;
 }
 
-.counter .counterNumberBasket {
+.counter .nounter_number_basket {
   border: none;
   text-align: center !important;
   color: #fff;
@@ -267,12 +273,12 @@
   font-size: 15px;
 }
 
-.BasketTotal {
+.basket_total {
   margin-top: 50px;
   position: relative;
 }
 
-.Basket .TotalPrice {
+.basket .total_price {
   position: absolute;
   right: 0;
   bottom: 0;
@@ -288,8 +294,7 @@
   text-align: right;
 }
 
-/* Popup style */
-.popup-box {
+.popup_box {
   z-index: 999;
   position: fixed;
   background: $purple_transparent;
@@ -316,7 +321,7 @@
   border-radius: 50px 50px 50px 0;
 }
 
-.close-icon {
+.close_icon {
   content: "x";
   cursor: pointer;
   position: absolute;
@@ -375,8 +380,7 @@
   }
 }
 
-/* Popup style */
-.basket-popup-box {
+.basket_popup_box {
   z-index: 999;
   position: fixed;
   background: $purple_transparent;
@@ -386,7 +390,7 @@
   left: 0;
 }
 
-.basket-box {
+.basket_box {
   z-index: 1000;
   position: relative;
   width: 80%;
@@ -409,19 +413,19 @@
     font-family: 'Jost', sans-serif;
   }
 
-  .BasketItemHeading {
+  .basket_item_heading {
     color: $black;
     font-size: 15px;
   }
 
-  .BasketItem .BasketItemPrice {
+  .basket_item .basket_item_price {
     color: $black;
   }
 
-.counter {
-  position: absolute;
-  left: 55px !important;
-}
+  .counter {
+    position: absolute;
+    left: 55px !important;
+  }
 
   .counter button {
     display: none;
@@ -440,7 +444,7 @@
   }
 }
 
-.basket-close-icon {
+.basket_close {
   content: "x";
   cursor: pointer;
   position: absolute;

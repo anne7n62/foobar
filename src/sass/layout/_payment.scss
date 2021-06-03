@@ -1,8 +1,6 @@
 @import '../abstracts/variables','../abstracts/mixins';
 
-// PAYMENT SITE
-
-.BasketDetails {
+.basket_details {
   color: $white;
   border-radius: $border;
   text-align: left;
@@ -12,22 +10,23 @@
   }
 }
 
-.Payment {
-  .BasketItemHeading {
-    left: 85px;
-    top: 5px;
-    font-size: 15px;
+.basket_item_price {
+  top: 40px !important;
+  right: 85px;
+
+  @include rwd(1150) {
+    top: 35px !important;
+    right: 0px !important;
   }
+}
 
-  .BasketItemPrice {
-    top: 40px !important;
-    right: 85px;
+.payment .basket_item_price {
+  top: 40px !important;
+  right: 85px;
 
-    // 992px window width and more
-    @include rwd(1150) {
-      top: 17px !important;
-      right: 0px !important;
-    }
+  @include rwd(1150) {
+    top: 10px !important;
+    right: 0px !important;
   }
 }
 
@@ -38,18 +37,16 @@
   position: relative !important;
   left: -1em !important;
 
-    // 992px window width and more
-    @include rwd(450) {
-      height: 200px !important;
-      width: 100% !important;
-      left: 0 !important;
-    }
-  
+  @include rwd(450) {
+    height: 200px !important;
+    width: 100% !important;
+    left: 0 !important;
+  }
 }
 
 .rccs__card--unknown > div {
   background: rgb(99,200,186);
-  background: linear-gradient(149deg, rgba(99,200,186,1) -20%, rgba(62,167,153,1) 100%) !important;  
+  background: $tealgradient !important;
   box-shadow: none;
 }
 
@@ -67,16 +64,15 @@ form {
 
 input:is([type="text"], [type="number"], [type="email"]) {
   color: #fff;
-  // border: 1px solid #cacefc;
   border: none;
   background: $transparent;
-      background-position-x: 0%;
-      background-position-y: 0%;
-      background-repeat: repeat;
-      background-image: none;
-      background-size: auto;
+  background-position-x: 0%;
+  background-position-y: 0%;
+  background-repeat: repeat;
+  background-image: none;
+  background-size: auto;
   padding: 15px 10px;
-      padding-left: 10px;
+  padding-left: 10px;
   padding-inline: 12px;
   padding-left: 15px;
   border-radius: 7px;
@@ -92,7 +88,7 @@ input:is([type="text"], [type="number"], [type="email"]) {
   position: relative;
 }
 
-.Payment label {
+.payment label {
   color: $white;
   font-family: Jost,sans-serif;
   text-transform: uppercase;
@@ -109,22 +105,21 @@ input:is([type="text"], [type="number"], [type="email"]) {
   top: -13px;
 }
 
-.Payment {
+.payment {
   display: block;
   margin: 0 auto;
   margin-top: -20px;
 
-  // 992px window width and more
   @include rwd(900) {
     display: grid;
-    grid-template-columns: 2.5fr 1fr;
+    grid-template-columns: 1fr 2.5fr;
     grid-gap: 4em;
     max-width: 1100px;
     margin-top: -50px;
   }
 }
 
-.PaymentDetails {
+.payment_details {
   padding: 45px;
   text-align: left;
   position: relative;
@@ -141,14 +136,14 @@ input:is([type="text"], [type="number"], [type="email"]) {
     margin-bottom: 35px;
   }
 
-  .SubmitButton {
+  .submit_button {
     width: 100%;
     position: absolute;
     border-radius: 0 0 40px 0;
   }
 }
 
-.BasketDetails {
+.basket_details {
   padding: 45px;
   height: auto;
   background-color: $transparent;
@@ -164,14 +159,14 @@ input:is([type="text"], [type="number"], [type="email"]) {
   }
 }
 
-.BasketDetails ul {
+.basket_details ul {
   margin-left: -35px;
   list-style: none;
   padding: 50px 35px;
   padding-right: 0;
 }
 
-#PaymentForm {
+#payment_form {
   margin: auto;
   margin-top: -15px;
 }
@@ -190,9 +185,6 @@ input {
 .form-control {
   margin-bottom: 10px;
 }
-
-
-/******FORM VALIDATION*****/
 
 .error-message {
   color: #ff9f8f;
@@ -220,9 +212,9 @@ input {
   }
   100% {
     opacity: 0;
-visibility: hidden;
-height: 0;
-margin-bottom: 20px;
+    visibility: hidden;
+    height: 0;
+    margin-bottom: 20px;
   }
 }
 
@@ -262,7 +254,6 @@ input[name="expiry"]:invalid, #cvc.custom {
 input[name="cvc"]:invalid, #monthyear.custom {
   background-position: 88% 19px !important;
 }
-
 
 @keyframes shake {
   25% {
@@ -316,8 +307,12 @@ input[name="cvc"]:invalid, #monthyear.custom {
     font-family: 'Jost', sans-serif;
 }
 
-  // 992px window width and more
   @include rwd(900) {
     margin-top: 0px;
   }
+}
+
+input::placeholder {
+  color: $light_transparent !important;
+  font-weight: 300 !important;
 }
