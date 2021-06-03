@@ -6,7 +6,7 @@ import FilterNav from "./FilterNav.js";
 
 function ProductList({ btnCategories, products, filteredBeers, addToBasket, removeFromBasket, basket, taps, setCategory }) {
   useEffect(() => {
-    gsap.fromTo(".product_list", { opacity: 0.2 }, { opacity: 1, delay: 0.5, ease: "power2.out", duration: 5 });
+    gsap.fromTo(".product_list", { opacity: 0.2, y: 5 }, { opacity: 1, duration: 3, y: 0 });
   });
 
   const productlist = filteredBeers.map((tap) => <Product className="product" tap={tap} filteredBeers={filteredBeers} basket={basket} products={products} key={tap.name} addToBasket={addToBasket} removeFromBasket={removeFromBasket}></Product>);
