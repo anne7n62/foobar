@@ -307,7 +307,7 @@
 .box {
   z-index: 1000;
   position: relative;
-  width: 50%;
+  width: 80%;
   margin: 0 auto;
   height: 60vh;
   margin-top: calc(100vh - 85vh - 20px);
@@ -315,10 +315,22 @@
   border-radius: 4px;
   border: 1px solid #999;
   overflow: auto;
-  display: grid;
-  grid-template-columns: 1.3fr 1fr;
-  grid-gap: 2em;
+display: block;
   border-radius: 50px 50px 50px 0;
+
+.img_column {
+  display: none;
+
+  @include rwd(1000){
+    display: block;
+  }
+}
+
+  @include rwd(1000){
+    display: grid;
+    grid-template-columns: 1.3fr 1fr;
+    grid-gap: 2em;
+  }
 }
 
 .close_icon {
